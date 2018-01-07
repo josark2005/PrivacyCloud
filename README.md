@@ -19,6 +19,12 @@
 
 ---
 
+## 相关信息 *Relevant Information*
+
+- 官网 [Privacy Cloud](http://pc.twocola.com)
+
+---
+
 ## F&Q
 
 ### 支持
@@ -75,10 +81,3 @@ Privacy Cloud在功能完善前是需要用户自行搭建的，功能完善后�
 Privacy Cloud不收取任何费用。请关注您使用的服务提供商的费用明细，以免出现超出免费额度而欠费删除数据的情况（**一般欠费删除数据之前会有短信提醒，请以官方的通知方式为准！**）。
 
 **因欠费导致的数据丢失问题，本项目不负责！**
-
-
----
-
-## 相关文件 *Relevant File*
-
-- 官网 [Privacy Cloud](http://pc.twocola.com)
