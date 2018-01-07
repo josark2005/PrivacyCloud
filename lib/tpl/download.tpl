@@ -50,26 +50,11 @@
       </div>
     </nav>
 
-    <div class="jumbotron pb-2">
-      <div class="container">
-        <h1 class="display-4">欢迎使用Privacy Cloud！</h1>
-        <p class="lead">针对个人设计的私有云对象存储服务管理一站式解决方案。</p>
-        <hr class="my-4">
-        <p>如果有问题请先阅读<a href="//github.com/jokin1999/PrivacyCloud/blob/master/README.md" target="_blank">Readme</a>文档。</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-md" href="//pc.twocola.com" target="_blank" role="button">官方网站</a>
-          <a class="btn btn-success btn-md" href="//github.com/jokin1999/PrivacyCloud" target="_blank" role="button">项目源码</a>
-        </p>
-        <div class="alert alert-danger" role="alert">
-          此版本仅供测试，请保护好个人私密信息！
-        </div>
-      </div>
-    </div>
-
     <div class="container">
-      <div class="row">
 
-        <div class="col-md-6 col-sm-12 mb-2">
+      <div class="row mt-4">
+
+        <div class="col-md-3 col-sm-12 mb-4">
           <div class="card">
             <div class="card-header bg-dark text-white">
               <span class="font-weight-bold">当前SP信息</span>
@@ -87,10 +72,7 @@
           </div>
         </div>
 
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-9 col-sm-12">
           <div class="card">
             <div class="card-header bg-dark text-white">
               <span class="font-weight-bold">资源管理</span>
@@ -111,6 +93,7 @@
             </div>
           </div>
         </div>
+
       </div>
 
     </div>
