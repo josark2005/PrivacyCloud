@@ -9,7 +9,6 @@
 
 /**
  * Privacy Cloud
- * @version 1.1.0
  * @author Jokin
 **/
 
@@ -25,7 +24,7 @@ define("AK", "");   // accesskey
 define("SK", "");   // secretkey
 define("BUK", "");  // bucket name
 // DOMIAN BINDING
-define("DM", "");  // If you have bound a domian, change 'false' into '<yourdomain>' (without 'http/https').
+define("DM", false);  // If you have bound a domian, change 'false' into '<yourdomain>' (without 'http/https').
 
 // Optional Settings
 // ACCOUNT AUTHENTICATED
