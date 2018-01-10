@@ -32,3 +32,28 @@ define("SP","qiniu");
 |**DM**|Domain|Bucket提供的域名或自行绑定的域名，一般为`xxx.com`|
 |AA|Account AUTHENTICATED|账户是否实名，实名填写`true`,否则填写`false`（此项设置不需要使用双引号）|
 |QD|Query Doamin|查询已使用的流量时需要查询的域名，多个域名时使用英文逗号隔开|
+
+---
+
+## 举个栗子
+
+```
+// 必填设置
+define("AK", "J7YjcNPAKo4HC5Q6szrX6EGcL8eBT06mqDQRVNqJ");   // accesskey
+define("SK", "4woy6xkY9y5GZtW_WGG74fSzx8qNBxjIRpPwKEBp");   // secretkey
+define("BUK", "exmple-bukname");  // bucket name
+// 域名绑定
+define("DM", "ospxxxxfu.bkt.clouddn.com");  // 如果你绑定了自己的域名，把false换成自己域名就可以了如左侧,没有绑定域名的填写方式请参考下方`图1`
+
+// 可选设置，一般保持默认即可
+// ACCOUNT AUTHENTICATED
+define("AA", false);  // 如果您的账户实名了，请将false换为true
+// FLUX CALCULATION(Query Doamin)
+define("QD", DM); // 如果你希望查询多个域名下的流量使用情况，请将DM换成你的域名，可以是多个，使用英语逗号隔开
+```
+
+---
+
+**图1**
+
+![图1](./imgs/m_1_x_x_p1.png)
