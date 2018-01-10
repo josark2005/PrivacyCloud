@@ -29,7 +29,7 @@ class template {
     // download
     if( self::$page == "download" ){
       $files = sdk::getFiles();
-      $_c = "<tr><td class=\"text-truncate\">1</td><td>2</td><td>";
+      $_c = "<tr><td class=\"text-truncate\">1</td><td>2 M</td><td>";
       $_content = "";
       foreach ($files as $key => $file) {
         $_temp = $_c;
