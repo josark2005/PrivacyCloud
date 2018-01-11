@@ -96,47 +96,27 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="nav"></div>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="?page=upload">上传</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?page=download">下载</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?page=start">教程</a>
+            </li>
+          </ul>
+          <span class="navbar-text text-white">
+            服务：<span id="SP">null</span> | 流量：<span id="flux">null</span>
+          </span>
+        </div>
       </div>
     </nav>
 
-    <div class="jumbotron pb-2">
-      <div class="container">
-        <h1 class="display-4">欢迎使用Privacy Cloud！</h1>
-        <p class="lead">针对个人设计的私有云对象存储服务管理一站式解决方案。</p>
-        <hr class="my-4">
-        <p>如果有问题请先阅读<a href="//github.com/jokin1999/PrivacyCloud/blob/master/README.md" target="_blank">Readme</a>文档。</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-md" href="//pc.twocola.com" target="_blank" role="button">官方网站</a>
-          <a class="btn btn-success btn-md" href="//github.com/jokin1999/PrivacyCloud" target="_blank" role="button">项目源码</a>
-        </p>
-        <div class="alert alert-danger" role="alert">
-          此版本仅供测试，请保护好个人私密信息！
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
+    <div class="container mt-4">
       <div class="row">
-
-        <div class="col-md-6 col-sm-12 mb-2">
-          <div class="card">
-            <div class="card-header bg-dark text-white">
-              <span class="font-weight-bold">当前SP信息</span>
-            </div>
-            <div class="card-body">
-              <span>服务提供商：</span><span id="SP">null</span><br />
-              <span>本月已使用流量：</span><span id="flux">null</span><br />
-              <hr />
-              <a class="btn btn-primary btn-md" href="?page=index" target="_self" role="button">首页</a>
-              <a class="btn btn-success btn-md" href="?page=download" target="_self" role="button">下载页</a>
-            </div>
-            <div class="card-footer text-muted">
-              <small>*数据仅供参考</small>
-            </div>
-          </div>
-        </div>
 
         <div class="col-md-6 col-sm-12 mb-2">
           <div class="card">
@@ -153,20 +133,17 @@
           </div>
         </div>
 
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-6 col-sm-12 mb-2">
           <div class="card">
             <div class="card-header bg-dark text-white">
-              <span class="font-weight-bold">离线下载(未开通)</span>
+              <span class="font-weight-bold"><del>离线下载</del>(未开通)</span>
             </div>
             <div class="card-body">
               <form>
                 <div class="input-group mb-3">
-                  <input type="url" class="form-control" placeholder="请输入源文件地址" aria-label="请输入源文件地址" aria-describedby="basic-addon2">
+                  <input type="url" class="form-control" placeholder="请输入源文件地址" aria-label="请输入源文件地址" aria-describedby="basic-addon2" disabled>
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit">离线下载</button>
+                    <button class="btn btn-outline-secondary disabled" aria-disabled="true" type="submit" disabled>离线下载</button>
                   </div>
                 </div>
               </form>
@@ -176,6 +153,35 @@
             </div>
           </div>
         </div>
+
+      </div>
+
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <span class="font-weight-bold">F&Q</span>
+        </div>
+        <div class="card-body">
+          <h3># 无法上传/上传失败</h3>
+          <ol>
+            <li>没有完善设置，系统无法读取"DM"设置。</li>
+            <li>AK/SK错误。</li>
+          </ol>
+          <hr />
+          <h3># 大型文件无法上传</h3>
+          <ol>
+            <li>默认单文件最大500M，可以自行修改。</li>
+          </ol>
+          <hr />
+          <h3># 更新后流量信息不见了</h3>
+          <ol>
+            <li>流量与当前服务商信息已经移动至顶部导航区域，大屏幕在顶部最右侧，小屏幕（移动端）请顶部最右侧“更多”按钮，在展开的区块中的最底部。</li>
+          </ol>
+          <hr />
+          <h3># 在线播放</h3>
+          <ol>
+            <li>后续会进行支持。</li>
+          </ol>
+        </div>
       </div>
 
     </div>
@@ -184,38 +190,39 @@
 
     <footer class="bg-dark pb-2 pt-4 text-white">
       <div class="container">
-        <div class="row">
+        <div class="row text-muted">
           <div class="col-md col-sm-12">
-            <h3>Join Us</h3>
+            <h3 class="text-white">Join Us</h3>
             <p>
-              <span>研发</span><br />
+              <span>后端研发-php</span><br />
               <span>美术设计</span><br />
-              <span>前端设计</span><br />
+              <span>前端设计-html/css</span><br />
+              <span>前端工程-js</span><br />
             </p>
           </div>
           <div class="col-md col-sm-12">
-            <h3>Relevant Files</h3>
+            <h3 class="text-white">Relevant Files</h3>
             <p>
-              <a href="//pc.twocola.com" target="_blank" class="text-white">官方网站</a><br />
-              <a href="//github.com/jokin1999/PrivacyCloud" target="_blank" class="text-white">Github仓库</a><br />
+              <a href="//pc.twocola.com" target="_blank" class="text-muted">官方网站</a><br />
+              <a href="//github.com/jokin1999/PrivacyCloud" target="_blank" class="text-muted">Github仓库</a><br />
             </p>
           </div>
           <div class="col-md col-sm-12">
-            <h3>Staff</h3>
+            <h3 class="text-white">Staff</h3>
             <p>
-              <a href="//weibo.com/jkweiyi" target="_blank" class="text-white">@Jokin</a>
+              <a href="//weibo.com/jkweiyi" target="_blank" class="text-muted">@Jokin</a>
             </p>
           </div>
           <div class="col-md col-sm-12">
-            <h3>Service Provider</h3>
+            <h3 class="text-white">Service Provider</h3>
             <p>
-              <span>七牛云：</span><a href="//portal.qiniu.com/signup?code=3lgquci2quafm" target="_blank" class="text-white">注册</a> <a href="//www.qiniu.com" target="_blank" class="text-white">官网</a><br />
+              <span>七牛云：</span><a href="//portal.qiniu.com/signup?code=3lgquci2quafm" target="_blank" class="text-muted">注册</a> <a href="//www.qiniu.com" target="_blank" class="text-muted">官网</a><br />
             </p>
             <small class="text-muted">*仅显示支持的sp</small>
           </div>
         </div>
         <hr class="my-1" />
-        <span>如果您对以上内容有兴趣，您可以发送邮箱到Jokin@twocola.com联系我们。</span><br />
+        <span class="text-muted">如果您对以上内容有兴趣，您可以发送邮箱到Jokin@twocola.com联系我们。</span><br />
         <small class="text-muted">当前版本：__VERSION__</small>
       </div>
     </footer>

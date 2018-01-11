@@ -45,34 +45,30 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="nav"></div>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="?page=upload">上传</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?page=download">下载</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?page=start">教程</a>
+            </li>
+          </ul>
+          <span class="navbar-text text-white">
+            服务：<span id="SP">null</span> | 流量：<span id="flux">null</span>
+          </span>
+        </div>
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container mt-4">
 
-      <div class="row mt-4">
+      <div class="row">
 
-        <div class="col-md-3 col-sm-12 mb-4">
-          <div class="card">
-            <div class="card-header bg-dark text-white">
-              <span class="font-weight-bold">当前SP信息</span>
-            </div>
-            <div class="card-body">
-              <span>服务提供商：</span><span id="SP">null</span><br />
-              <span>本月已使用流量：</span><span id="flux">null</span><br />
-              <hr />
-              <a class="btn btn-primary btn-md" href="?page=index" target="_self" role="button">首页</a>
-              <a class="btn btn-success btn-md" href="?page=download" target="_self" role="button">下载页</a>
-            </div>
-            <div class="card-footer text-muted">
-              <small>*数据仅供参考</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-9 col-sm-12">
+        <div class="col-md-12 col-sm-12">
           <div class="card">
             <div class="card-header bg-dark text-white">
               <span class="font-weight-bold">资源管理</span>
@@ -97,46 +93,6 @@
       </div>
 
     </div>
-
-    <hr class="mb-0 mt-4">
-
-    <footer class="bg-dark pb-2 pt-4 text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md col-sm-12">
-            <h3>Join Us</h3>
-            <p>
-              <span>研发</span><br />
-              <span>美术设计</span><br />
-              <span>前端设计</span><br />
-            </p>
-          </div>
-          <div class="col-md col-sm-12">
-            <h3>Relevant Files</h3>
-            <p>
-              <a href="//pc.twocola.com" target="_blank" class="text-white">官方网站</a><br />
-              <a href="//github.com/jokin1999/PrivacyCloud" target="_blank" class="text-white">Github仓库</a><br />
-            </p>
-          </div>
-          <div class="col-md col-sm-12">
-            <h3>Staff</h3>
-            <p>
-              <a href="//weibo.com/jkweiyi" target="_blank" class="text-white">@Jokin</a>
-            </p>
-          </div>
-          <div class="col-md col-sm-12">
-            <h3>Service Provider</h3>
-            <p>
-              <span>七牛云：</span><a href="//portal.qiniu.com/signup?code=3lgquci2quafm" target="_blank" class="text-white">注册</a> <a href="//www.qiniu.com" target="_blank" class="text-white">官网</a><br />
-            </p>
-            <small class="text-muted">*仅显示支持的sp</small>
-          </div>
-        </div>
-        <hr class="my-1" />
-        <span>如果您对以上内容有兴趣，您可以发送邮箱到Jokin@twocola.com联系我们。</span><br />
-        <small class="text-muted">当前版本：__VERSION__</small>
-      </div>
-    </footer>
 
   </body>
 </html>

@@ -13,7 +13,7 @@ namespace PrivacyCloud;
  * @author Jokin
 **/
 class template {
-  public static $page = "index";
+  public static $page = "upload";
   public static function run(){
     if( !isset($_GET['page']) || $_GET['page'] == "index" ){
       self::$page = "index";
@@ -22,8 +22,8 @@ class template {
     }
     $page = self::$page;
     if( !is_file("./lib/tpl/{$page}.tpl") ){
-      $page = "index";  // 页面不存在自动跳转到首页
-      self::$page = "index";
+      $page = "upload";  // 页面不存在自动跳转到首页
+      self::$page = "upload";
     }
     $page = file_get_contents("./lib/tpl/{$page}.tpl");
     // download
