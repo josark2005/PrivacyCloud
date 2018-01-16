@@ -14,7 +14,7 @@ name: Privacy Cloud
   - `0`：只要有自动更新功能即可更新
   - `其他`： 从这个版本起都可以进行自动更新
 - `auto_update_except`： 自动更新除外列表
-- `level`： 详情请查询 [参考页](./i_level.md)
+- `level`： 详情请查询 [参考页](./i_level.json)
 - `necessity`： 必要性，0~9的区间值，数值越大越必要。
 - `releastAt`： 发布日期
 
@@ -28,4 +28,4 @@ name: Privacy Cloud
 
 ## 相关链接 *Relevant Links*
 
-- **最新发布版本** [查看](./lastest.md)
+- **最新发布版本** [查看](./lastest.json)
