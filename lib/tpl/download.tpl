@@ -10,6 +10,7 @@
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/plupload.full.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/qiniu.min.js" charset="utf-8"></script>
+    <script src="./lib/tpl/js/main.js" charset="utf-8"></script>
     <script type="text/javascript">
       $(function(){
         var sp = "__SP__".toUpperCase();

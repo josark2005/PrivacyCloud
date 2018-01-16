@@ -10,6 +10,7 @@
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/plupload.full.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/qiniu.min.js" charset="utf-8"></script>
+    <script src="./lib/tpl/js/main.js" charset="utf-8"></script>
     <script type="text/javascript">
       var uploader;
       $(function(){
@@ -223,7 +224,13 @@
         </div>
         <hr class="my-1" />
         <span class="text-muted">如果您对以上内容有兴趣，您可以发送邮箱到Jokin@twocola.com联系我们。</span><br />
-        <small class="text-muted">当前版本：__VERSION__</small>
+        <small class="text-muted">当前版本：
+          <span id="current_version">__VERSION__</span>
+        </small>
+        <small class="text-muted">最新版本：
+          <span id="lastest_version">获取失败</span>
+          <span id="lastest_version_tip"></span>
+        </small>
       </div>
     </footer>
 
