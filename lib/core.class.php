@@ -20,7 +20,7 @@ class Core {
   **/
   public static function initialize(){
     // 版本信息
-    define("VERSION", "1.2.1");
+    define("VERSION", "1.3.0");
     // 关闭报错
     error_reporting(0);
     // 注册autoload方法

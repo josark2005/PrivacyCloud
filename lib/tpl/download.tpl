@@ -21,7 +21,7 @@
       });
       function del(key){
         $.ajax({
-          url: "?page=del&key="+key,
+          url: "?page=_del&key="+key,
           dataType: "json",
           timeout: 10000,
           success: function(data){

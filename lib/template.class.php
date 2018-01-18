@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * Template Processor
- * @version 1.0.0
+ * @version 1.1.0
  * @author Jokin
 **/
 class template {
@@ -41,10 +41,47 @@ class template {
       }
       $page = str_replace("==list==", $_content, $page);
     }
-    // delete
-    if( self::$page == "del" && isset($_GET['key']) && !empty($_GET['key']) ){
+    // _del
+    if( self::$page == "_del" && isset($_GET['key']) && !empty($_GET['key']) ){
       $res = sdk::delFile($_GET['key']);
       if(!$res){
+        echo "{\"message\":\"error.\"}";
+        exit();
+      }
+    }
+    // _update
+    if( self::$page == "_update" && isset($_GET['version']) && !empty($_GET['version']) ){
+      $basic_url = "http://pc.twocola.com/";
+      $filename = $_GET['version'].".zip";
+      $file = file_get_contents($basic_url."update/".$filename);
+      if($file){
+        file_put_contents("./_update.zip", $file);
+        $file_md5 = mb_strtoupper(MD5($file), "utf-8");
+        // 验证md5
+        $_md5 = file_get_contents($basic_url."release/_build_lastest.pcj");
+        $_md5 = htmlspecialchars_decode($_md5);
+        $_md5 = json_decode($_md5);
+        $_md5 = $_md5['md5'];
+        if( $file_md5 != $_md5 ){
+          echo "{\"message\":\"bad md5.\"}";
+          exit();
+        }
+        $zip = new \ZipArchive;
+        if( $zip->open("./_update.zip") ){
+          if( $zip->extractTo("./") ){
+            $zip->close();
+            unlink("./_update.zip");
+            echo "{\"message\":\"complete.\"}";
+            exit();
+          }else{
+            echo "{\"message\":\"error.\"}";
+            exit();
+          }
+        }else{
+          echo "{\"message\":\"error.\"}";
+          exit();
+        }
+      }else{
         echo "{\"message\":\"error.\"}";
         exit();
       }
