@@ -17,6 +17,7 @@ name: Privacy Cloud
 - `level`： 详情请查询 [参考页](./i_level.pcj)
 - `necessity`： 必要性，0~9的区间值，数值越大越必要。
 - `releastAt`： 发布日期
+- `is_build`： 是否为测试版
 
 *微功能：无需手动运行的功能。*
 
