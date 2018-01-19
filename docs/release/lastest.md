@@ -7,5 +7,5 @@
   "level": 12,
   "necessity": 2,
   "releastAt": "2018-01-19",
-  "is_build": false,
+  "is_build": false
 }
