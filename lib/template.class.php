@@ -58,7 +58,7 @@ class template {
         file_put_contents("./_update.zip", $file);
         $file_md5 = mb_strtoupper(MD5($file), "utf-8");
         // 验证md5
-        $_md5 = file_get_contents($basic_url."release/_build_lastest.pcj");
+        $_md5 = file_get_contents($basic_url."release/lastest.md");
         $_md5 = htmlspecialchars_decode($_md5);
         $_md5 = json_decode($_md5);
         $_md5 = $_md5['md5'];
