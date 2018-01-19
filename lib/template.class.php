@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * Template Processor
- * @version 1.1.0
+ * @version 1.1.1
  * @author Jokin
 **/
 class template {
@@ -60,7 +60,7 @@ class template {
         // 验证md5
         $_md5 = file_get_contents($basic_url."release/lastest.md");
         $_md5 = htmlspecialchars_decode($_md5);
-        $_md5 = json_decode($_md5);
+        $_md5 = json_decode($_md5, true); // 解析为数组
         $_md5 = $_md5['md5'];
         if( $file_md5 != $_md5 ){
           echo "{\"message\":\"bad md5.\"}";
