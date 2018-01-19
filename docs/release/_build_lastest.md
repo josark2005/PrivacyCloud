@@ -1,6 +1,6 @@
 {
   "version": "1.3.1",
-  "md5": "69861BC3F11338D46D80B087AE9E7BD9",
+  "md5": "39023BDD286D7F821E34288577593AF8",
   "auto_update": true,
   "auto_update_support": "0",
   "auto_update_except": false,
