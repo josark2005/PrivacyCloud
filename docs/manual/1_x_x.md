@@ -67,5 +67,5 @@ define("QD", DM); // 如果你希望查询多个域名下的流量使用情况�
   ```
   如：pc.twocola.com?page=_update&version=1.3.1
   ```
-- 显示结果出现`success!`为成功
+- 显示结果出现`success`或`complete`为成功
 - 具体情况请以最终版本号为准
