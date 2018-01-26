@@ -1,5 +1,4 @@
 ---
----
 title: Privacy Cloud
 name: Privacy Cloud
 ---
