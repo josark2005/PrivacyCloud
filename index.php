@@ -12,27 +12,13 @@
  * @author Jokin
 **/
 
-// !以下设置请参考官网手册 pc.twocola.com
-// 选择服务提供商（不区分大小写）
 /**
- * 七牛云： qiniu
+ * 1.3.1自动升级注意
+ * 所有配置项已全部整理至入口文件同级目录下config.inc.php
 **/
-define("SP","qiniu");
 
-// Required Settings
-define("AK", "");   // accesskey
-define("SK", "");   // secretkey
-define("BUK", "");  // bucket name
-// DOMIAN BINDING
-define("DM", false);  // If you have bound a domian, change 'false' into '<yourdomain>' (without 'http/https').
 
-// Optional Settings
-// ACCOUNT AUTHENTICATED
-define("AA", false);  // If you use a real-name account, change 'false' into 'true'.
-// FLUX CALCULATION(Query Doamin)
-define("QD", DM); // If you wants to query other domains together, change 'DM' into '<yourdomains>', and separate by commas.
-
-// ！以下内容请勿修改
+/* ！以下内容请勿修改 */
 // Load core
 include "./lib/core.class.php";
 \PrivacyCloud\Core::initialize();

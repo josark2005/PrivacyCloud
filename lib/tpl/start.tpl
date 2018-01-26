@@ -15,7 +15,23 @@
         var flux = "__FLUX__" + "MB";
         document.getElementById("SP").innerHTML = sp;
         document.getElementById("flux").innerHTML = flux;
-        var items = "__ITEMS__";
+        $.ajax({
+          url: "//raw.githubusercontent.com/jokin1999/PrivacyCloud/master/docs/release/lastest.md",
+          complete: function(xml, status){
+            console.log(status);
+          },
+          success: function(data){
+            // current version
+            var current_version = $("#current_version").text();
+            console.log(current_version);
+            // lastest version
+            data = jQuery.parseJSON(data);
+            console.log(data);
+            var lastest_version = data.version;
+            console.log(lastest_version);
+            $("#lastest_version").text(lastest_version);
+          },
+        });
       });
     </script>
   </head>
@@ -82,6 +98,21 @@
             </div>
           </div>
         </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="card">
+            <div class="card-header bg-dark text-white">版本一览</div>
+            <div class="card-body">
+              <ul class="pl-4">
+                <li>当前版本：__VERSION__</li>
+                <li>内核版本：__CORE_VERSION__</li>
+                <li>官方最新版本：<span id="lastest_version">获取中</span><sup>[1]</sup></li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <small>[1]官方最新版本可能大于最新版本。最新版本指当前支持自动更新的最新版本，而官方最新指所有版本中最新的版本。</small>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -126,8 +157,8 @@
           <span id="current_version">__VERSION__</span>
         </small>
         <small class="text-muted">最新版本：
-          <span id="lastest_version">获取失败</span>
-          <span id="lastest_version_tip"></span>
+          <span id="auto_lastest_version">获取中</span>
+          <span id="auto_lastest_version_tip"></span>
         </small>
       </div>
     </footer>

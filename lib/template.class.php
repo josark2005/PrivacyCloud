@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * Template Processor
- * @version 1.1.1
+ * @version 1.1.2
  * @author Jokin
 **/
 class template {
@@ -31,13 +31,15 @@ class template {
       $files = sdk::getFiles();
       $_c = "<tr><td class=\"text-truncate\">1</td><td>2 M</td><td>";
       $_content = "";
-      foreach ($files as $key => $file) {
-        $_temp = $_c;
-        $_handle = "<a class=\"text-primary\" href=\"//".DM."/".$file['key']."\" target=\"_blank\">下载</a> | <a class=\"text-danger\" onclick=\"javascript:del('".$file['key']."');\">删除</a>";
-        $_temp = str_replace("1", $file['key'], $_temp);
-        $_temp = str_replace("2", round($file['fsize']/1024/1024, 2), $_temp);
-        $_temp .= $_handle."</td></tr>";
-        $_content .= $_temp;
+      if( is_array($files) ){
+        foreach ($files as $key => $file) {
+          $_temp = $_c;
+          $_handle = "<a class=\"text-primary\" href=\"//".C("DM")."/".$file['key']."\" target=\"_blank\">下载</a> | <a class=\"text-danger\" onclick=\"javascript:del('".$file['key']."');\">删除</a>";
+          $_temp = str_replace("1", $file['key'], $_temp);
+          $_temp = str_replace("2", round($file['fsize']/1024/1024, 2), $_temp);
+          $_temp .= $_handle."</td></tr>";
+          $_content .= $_temp;
+        }
       }
       $page = str_replace("==list==", $_content, $page);
     }
@@ -51,39 +53,46 @@ class template {
     }
     // _update
     if( self::$page == "_update" && isset($_GET['version']) && !empty($_GET['version']) ){
-      $basic_url = "http://pc.twocola.com/";
+      // 生成备份
+      $zip = new ziper("./_pcbkup.zip", "c");
+      if(!$zip){
+        exit("{\"message\":\"failed to create backup.\"}");
+      }else{
+        $zip->addFolder("./lib");
+        $zip->addFile("./index.php");
+      }
+      if($zip->$errnum !== 0){
+        exit("{\"message\":\"failed to create backup.\"}");
+      }
+      // 升级
+      $basic_url = C("update_basic_url");
       $filename = $_GET['version'].".zip";
       $file = file_get_contents($basic_url."update/".$filename);
       if($file){
         file_put_contents("./_update.zip", $file);
         $file_md5 = mb_strtoupper(MD5($file), "utf-8");
         // 验证md5
-        $_md5 = file_get_contents($basic_url."release/lastest.md");
+        $_md5 = file_get_contents($basic_url."release/support_status.md");
         $_md5 = htmlspecialchars_decode($_md5);
         $_md5 = json_decode($_md5, true); // 解析为数组
-        $_md5 = $_md5['md5'];
+        $_md5 = $_md5[VERSION]['md5'];
         if( $file_md5 != $_md5 ){
-          echo "{\"message\":\"bad md5.\"}";
-          exit();
+          exit("{\"message\":\"bad md5.\"}");
         }
         $zip = new \ZipArchive;
         if( $zip->open("./_update.zip") ){
           if( $zip->extractTo("./") ){
             $zip->close();
             unlink("./_update.zip");
-            echo "{\"message\":\"complete.\"}";
-            exit();
+            exit("{\"message\":\"complete.\"}");
           }else{
-            echo "{\"message\":\"error.\"}";
-            exit();
+            exit("{\"message\":\"error.\"}");
           }
         }else{
-          echo "{\"message\":\"error.\"}";
-          exit();
+          exit("{\"message\":\"error.\"}");
         }
       }else{
-        echo "{\"message\":\"error.\"}";
-        exit();
+        exit("{\"message\":\"error.\"}");
       }
     }
     $page = self::ConReference($page);
@@ -114,11 +123,9 @@ class template {
         $i++;
       }
       $matches = $res;
-      for($i=0;$i<count($matches[0]);$i++){
-        if( defined($matches[1][$i]) ){
-          $const = constant($matches[1][$i]);
-          $content = str_replace($matches[0][$i],$const,$content);
-        }
+      for($i=0; $i<count($matches[0]); $i++){
+        $const = C($matches[1][$i]);
+        $content = str_replace($matches[0][$i],$const,$content);
       }
     }
     return $content;

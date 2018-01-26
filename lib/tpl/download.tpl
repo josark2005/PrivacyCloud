@@ -17,7 +17,6 @@
         var flux = "__FLUX__" + "MB";
         document.getElementById("SP").innerHTML = sp;
         document.getElementById("flux").innerHTML = flux;
-        var items = "__ITEMS__";
       });
       function del(key){
         $.ajax({

@@ -228,8 +228,8 @@
           <span id="current_version">__VERSION__</span>
         </small>
         <small class="text-muted">最新版本：
-          <span id="lastest_version">获取失败</span>
-          <span id="lastest_version_tip"></span>
+          <span id="auto_lastest_version">获取中</span>
+          <span id="auto_lastest_version_tip"></span>
         </small>
       </div>
     </footer>

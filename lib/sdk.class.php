@@ -18,12 +18,12 @@ class sdk {
   const PATH_SDK = "./lib/SDK/";
 
   // SDK载入路径
-  static private $sdk_autoload = array(
+  private static $sdk_autoload = array(
     "QINIU" => "qiniu/autoload.php",
   );
 
   // Calculated Path
-  static private $sdkpath = false;
+  private static $sdkpath = false;
 
   /**
    * SDK载入器
@@ -31,13 +31,13 @@ class sdk {
    * @return void
   **/
   public static function loader(){
-    switch ( mb_strtoupper(SP) ) {
+    switch ( mb_strtoupper(C("SP")) ) {
       case "QINIU":
-        self::$sdkpath = self::PATH_SDK.self::$sdk_autoload[mb_strtoupper(SP)];
+        self::$sdkpath = self::PATH_SDK.self::$sdk_autoload[mb_strtoupper(C("SP"))];
         break;
 
       default:
-        exit("[ERROR]Forget to define service provider.");
+        exit("[ERROR]Unknown service provider.");
         break;
     }
     include self::$sdkpath;
@@ -49,11 +49,11 @@ class sdk {
    * @return void
   **/
   public static function getUpToken(){
-    $auth = new \Qiniu\Auth(AK, SK);
+    $auth = new \Qiniu\Auth(C("AK"), C("SK"));
     $expires = 3600;
     $policy = null;
-    $upToken = $auth->uploadToken(BUK, null, $expires, $policy, true);
-    define("UPTOKEN", $upToken);
+    $upToken = $auth->uploadToken(C("BKT"), null, $expires, $policy, true);
+    C("UPTOKEN", $upToken);
   }
 
   /**
@@ -62,9 +62,9 @@ class sdk {
    * @return void
   **/
   public static function getFlux(){
-    $auth = new \Qiniu\Auth(AK, SK);
+    $auth = new \Qiniu\Auth(C("AK"), C("SK"));
     $cdnManager = new \Qiniu\Cdn\CdnManager($auth);
-    $domains = explode(",", QD);
+    $domains = explode(",", C("QD"));
     $startDate = date("Y-m-01");
     $endDate = date("Y-m-d");
     $granularity = "day";
@@ -81,8 +81,8 @@ class sdk {
           }
         }
     }
-    $flux = round($flux/1024/1024, 2);
-    define("FLUX", $flux);
+    $flux = (int) round($flux/1024/1024, 2);
+    C("FLUX", $flux, true);
   }
 
   /**
@@ -91,7 +91,7 @@ class sdk {
    * @return void
   **/
   public static function getFiles(){
-    $auth = new \Qiniu\Auth(AK, SK);
+    $auth = new \Qiniu\Auth(C("AK"), C("SK"));
     $bucketManager = new \Qiniu\Storage\BucketManager($auth);
     $prefix = '';
     $marker = '';
@@ -99,7 +99,7 @@ class sdk {
     $delimiter = '/';
 
     // 列举文件
-    list($ret, $err) = $bucketManager->listFiles(BUK, $prefix, $marker, $limit, $delimiter);
+    list($ret, $err) = $bucketManager->listFiles(C("BKT"), $prefix, $marker, $limit, $delimiter);
     if ($err !== null) {
         // echo "\n====> list file err: \n";
         // var_dump($err);
@@ -121,10 +121,10 @@ class sdk {
    * @return boolean
   **/
   public static function delFile($key){
-    $auth = new \Qiniu\Auth(AK, SK);
+    $auth = new \Qiniu\Auth(C("AK"), C("SK"));
     $config = new \Qiniu\Config();
     $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
-    $err = $bucketManager->delete(BUK, $key);
+    $err = $bucketManager->delete(C("BKT"), $key);
     if ($err === null) {
       return true;
     }else{

@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * Core
- * @version 1.0.0
+ * @version 2.0.0-beta.1
  * @author Jokin
 **/
 class Core {
@@ -19,12 +19,25 @@ class Core {
    * @return void
   **/
   public static function initialize(){
+    // 环境版本判断
+    if( version_compare(PHP_VERSION ,"5.6.0" ,"<") ){
+      die("您的环境不支持运行Privacy Cloud，要求PHP版本大于等于5.6.0");
+    }
     // 版本信息
-    define("VERSION", "1.3.1");
+    define("VERSION", "1.3.2");
+    define("CORE_VERSION", "2.0.0-beta.1");
     // 关闭报错
     error_reporting(0);
     // 注册autoload方法
     spl_autoload_register("PrivacyCloud\Core::autoload");
+    // 载入系统配置
+    configuration::init()->analyzeConf("./config.inc.php", "config");
+    // 载入系统方法
+    include("./lib/function.php");
+    // 安装更新
+    self::exec_update();
+    // 检查系统完整性
+    self::verify();
     // 载入SDK
     sdk::loader();
     // 获取FLUX
@@ -55,6 +68,35 @@ class Core {
     }
     // var_dump($path);
     include $path;
+  }
+
+  /**
+   * verify
+   * @param  void
+   * @return void
+  **/
+  static public function verify(){
+    // 检查配置文件
+    if( !is_file("./config.inc.php") ){
+      if( !is_file("./lib/assets/configuration/config.inc.php.tpl") ){
+        exit("[ERROR]Lost configuration file.");
+      }else{
+        $conf = file_get_contents("./lib/assets/configuration/config.inc.php.tpl");
+        file_put_contents("./config.inc.php", $conf);
+      }
+    }
+  }
+
+  /**
+   * Execute Update
+   * @param  void
+   * @return void
+  **/
+  static public function exec_update(){
+    if( is_file("./_update.php") ){
+      include("./_update.php");
+      unlink("./_update.php");
+    }
   }
 }
 
