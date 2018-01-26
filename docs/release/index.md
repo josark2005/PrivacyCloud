@@ -1,4 +1,5 @@
 ---
+---
 title: Privacy Cloud
 name: Privacy Cloud
 ---
@@ -9,6 +10,9 @@ name: Privacy Cloud
 ---
 
 ## 版本信息解释
+
+*提供的版本信息存在版本差异，缺少为正常现象*
+
 - `auto_update`： 是否支持自动更新
 - `auto_update_support`： 自动更新支持版本
   - `0`：只要有自动更新功能即可更新
@@ -24,6 +28,12 @@ name: Privacy Cloud
 *非主程序：如SDK等第三方支持的程序。*
 
 *`level`可能由多个数字组成，以表达更准确。*
+
+---
+
+## 最新版本支持
+
+- 请见[支持列表](./support_status.md)
 
 ---
 
