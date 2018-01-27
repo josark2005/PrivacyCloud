@@ -25,7 +25,9 @@ Author: Jokin
 
 ## 相关文件 *Relevant File*
 
-- **设置向导** [查看](./manual/start.md)
+- **使用手册** [查看](./manual/start.md)
+- **版本发布** [查看](./release/index.md)
+- **官方公告** [查看](./notice/index.md)
 
 ---
 

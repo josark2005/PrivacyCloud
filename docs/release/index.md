@@ -34,6 +34,8 @@ name: Privacy Cloud
 
 - 请见[支持列表](./support_status.md)
 
+*当前版本不在`支持列表`中或多个版本周期无版本升级：可能停止支持或不支持自动升级。*
+
 ---
 
 ## 相关链接 *Relevant Links*
