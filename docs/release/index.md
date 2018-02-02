@@ -17,7 +17,7 @@ name: Privacy Cloud
   - `0`：只要有自动更新功能即可更新
   - `其他`： 从这个版本起都可以进行自动更新
 - `auto_update_except`： 自动更新除外列表
-- `level`： 详情请查询 [参考页](./i_level.md)
+- `level`： 详情请查询 [参考页](./i_level.md)(json)
 - `necessity`： 必要性，0~9的区间值，数值越大越必要。
 - `releastAt`： 发布日期
 - `is_build`： 是否为测试版
@@ -32,7 +32,7 @@ name: Privacy Cloud
 
 ## 最新版本支持
 
-- 请见[支持列表](./support_status.md)
+- 请见[支持列表](./support_status.md)(json)
 
 *当前版本不在`支持列表`中或多个版本周期无版本升级：可能停止支持或不支持自动升级。*
 
@@ -40,4 +40,5 @@ name: Privacy Cloud
 
 ## 相关链接 *Relevant Links*
 
-- **最新发布版本** [查看](./lastest.md)
+- **最新发布版本** [查看](./lastest.md)(json)
+- **更新日志** [查看](../notice/update_logs.md)
