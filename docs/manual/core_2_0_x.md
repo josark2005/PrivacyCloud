@@ -25,8 +25,8 @@
 |设置项|意义|例子/解释|
 |:-:|:-:|:-:|
 |**SP**|服务提供商|可选：`QINIU`|
-|**AK**|Access Key|账户控制台个人中心密钥管理中提供的AK|
-|**SK**|Secret Key|账户控制台个人中心密钥管理中提供的SK|
+|**AK**|Access Key|账户控制台个人中心密钥管理中提供的AK，参考下方`图2`|
+|**SK**|Secret Key|账户控制台个人中心密钥管理中提供的SK，参考下方`图2`|
 |**BKT**|Bucket|需要连接的对象存储Bucket名称|
 |**DM**|Domain|Bucket提供的域名或自行绑定的域名，一般为`xxx.com`，参考下方`图1`|
 |AA|Account Authenticated|账户是否实名，实名填写`true`,否则填写`false`（此项设置不需要使用双引号）|
@@ -52,9 +52,6 @@ $config=array (
   'update_basic_url' => '//raw.githubusercontent.com/jokin1999/PrivacyCloud/master/docs/',
 );
 ```
-
-### 配置页
-详见下方`图2`
 
 ---
 
