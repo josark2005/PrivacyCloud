@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | Writed by Jokin [ Think & Do & To Be Better ]
+// | Constructed by Jokin [ Think & Do & To Be Better ]
 // +----------------------------------------------------------------------
 // | Copyright (c) 2016-2018 Jokin All rights reserved.
 // +----------------------------------------------------------------------
@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * Ziper
- * @version 1.0.0
+ * @version 1.1.0
  * @author Jokin
 **/
 class ziper {
@@ -18,12 +18,12 @@ class ziper {
   public $errlog = null;
   public $errnum = 0;
   /**
-   * initialize
+   * initializey
    * @param  string file
    * @return mixed
   **/
   public function __construct($file, $type="w"){
-    self::$zip = new \ZipArchive();
+    $this->zip = new \ZipArchive();
     switch ($type) {
       case 'w':
         $type = \ZipArchive::OVERWRITE;
@@ -36,12 +36,12 @@ class ziper {
         $type = \ZipArchive::OVERWRITE;
         break;
     }
-    $res = $zip->open($file, $type);
+    $res = $this->zip->open($file, $type);
     if( $res !== TRUE ){
-      self::$errcode = $res;
+      $this->errcode = $res;
       return FALSE;
     }else{
-      return self;
+      return $this;
     }
   }
 
@@ -68,17 +68,17 @@ class ziper {
       foreach ($dirs as $key => $value) {
         if( $value != "." && $value != ".." ){
           if( is_dir($path."/".$value) ){
-            addFolder($zip, $path."/".$value);
+            $this->addFolder($path."/".$value);
           }else{
-            if(!self::$zip->addFile($path."/".$value, $basepath."/".$value)){
-              self::$errlog[] = "[AddM]".$path."/".$value;
-              self::$errnum ++;
+            if(!$this->zip->addFile($path."/".$value)){
+              $this->errlog[] = "[AddM]".$path."/".$value;
+              $this->errnum ++;
             }
           }
         }
       }
     }
-    return self;
+    return $this;
   }
 
   /**
@@ -99,11 +99,11 @@ class ziper {
     }else if($starter == "/"){
       $basepath = mb_substr($path, 1);
     }
-    if(!self::$zip->addFile($path."/".$value, $basepath."/".$value)){
-      self::$errlog[] = "[AddS]".$path."/".$value;
-      self::$errnum ++;
+    if(!$this->zip->addFile($basepath)){
+      $this->errlog[] = "[AddS]".$path;
+      $this->errnum ++;
     }
-    return self;
+    return $this;
   }
 
   /**
@@ -112,11 +112,11 @@ class ziper {
    * @return object
   **/
   public function extract($path){
-    if(!self::$zip->extractTo($path."/".$value, $basepath."/".$value)){
-      self::$errlog[] = "[Ext2]".$path."/".$value;
-      self::$errnum ++;
+    if(!$this->zip->extractTo($path."/".$value, $basepath."/".$value)){
+      $this->errlog[] = "[Ext2]".$path."/".$value;
+      $this->errnum ++;
     }
-    return self;
+    return $this;
   }
 
   /**
@@ -125,7 +125,7 @@ class ziper {
    * @return void
   **/
   public function __destruct(){
-    self::$zip->close();
+    $this->zip->close();
   }
 
 }

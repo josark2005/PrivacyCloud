@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | Writed by Jokin [ Think & Do & To Be Better ]
+// | Constructed by Jokin [ Think & Do & To Be Better ]
 // +----------------------------------------------------------------------
 // | Copyright (c) 2016-2018 Jokin All rights reserved.
 // +----------------------------------------------------------------------
@@ -9,12 +9,12 @@
 namespace PrivacyCloud;
 /**
  * Configuration Core
- * @version 1.0.0
+ * @version 1.0.1
  * @author Jokin
 **/
 class configuration {
   private static $self = null;
-  private static $configurations = null;
+  public static $configurations = null;
 
   private function __construct(){
     return false;
@@ -42,8 +42,10 @@ class configuration {
   public static function analyzeConf($path="./config.inc.php", $var="config"){
     if( is_file($path) ){
       include($path);
-      foreach($$var as $k=>$c){
-        self::$configurations[mb_strtoupper($k)] = $c;
+      if( isset($$var) && is_array($$var) ){
+        foreach($$var as $k=>$c){
+          self::$configurations[mb_strtoupper($k)] = $c;
+        }
       }
     }else{
       return false;
@@ -101,7 +103,7 @@ class configuration {
    * @return boolean
   **/
   public static function exists($conf){
-    return isset(self::$configurations[$conf]);
+    return isset( self::$configurations[strtoupper($conf)] );
   }
 
 

@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * Core
- * @version 2.0.0-beta.1
+ * @version 2.0.0-beta.2
  * @author Jokin
 **/
 class Core {
@@ -19,17 +19,19 @@ class Core {
    * @return void
   **/
   public static function initialize(){
+    // debug
+    define("DEBUG", false);
     // 环境版本判断
     if( version_compare(PHP_VERSION ,"5.6.0" ,"<") ){
       die("您的环境不支持运行Privacy Cloud，要求PHP版本大于等于5.6.0");
     }
     // 版本信息
-    define("VERSION", "1.3.2");
-    define("CORE_VERSION", "2.0.0-beta.1");
-    // 关闭报错
-    error_reporting(0);
+    define("VERSION", "1.4.0");
+    define("CORE_VERSION", "2.0.0-beta.2");
     // 注册autoload方法
     spl_autoload_register("PrivacyCloud\Core::autoload");
+    // 关闭报错
+    debug::error_report();
     // 载入系统配置
     configuration::init()->analyzeConf("./config.inc.php", "config");
     // 载入系统方法
@@ -38,14 +40,21 @@ class Core {
     self::exec_update();
     // 检查系统完整性
     self::verify();
+    // 解析路径
+    router::analyze($_GET);
     // 载入SDK
     sdk::loader();
-    // 获取FLUX
-    sdk::getFlux();
-    // 获取UPTOKEN
-    sdk::getUpToken();
-    // 页面处理
-    template::run();
+    if( C("PAGE") !== "configurate" && C("MODE") !== router::MODE_API ){
+      // 获取FLUX
+      sdk::getFlux();
+      // 获取UPTOKEN
+      sdk::getUpToken();
+    }
+    if( C("MODE") === router::MODE_API ){
+      api::run();
+    }else{
+      template::run();
+    }
   }
 
 
@@ -75,14 +84,17 @@ class Core {
    * @param  void
    * @return void
   **/
-  static public function verify(){
+  static public function verify($is_again = false){
     // 检查配置文件
     if( !is_file("./config.inc.php") ){
       if( !is_file("./lib/assets/configuration/config.inc.php.tpl") ){
         exit("[ERROR]Lost configuration file.");
-      }else{
+      }else if( $is_again === false ){
         $conf = file_get_contents("./lib/assets/configuration/config.inc.php.tpl");
         file_put_contents("./config.inc.php", $conf);
+        self::verify(true);
+      }else{
+        exit("[ERROR]Failed to create the configuration file.");
       }
     }
   }

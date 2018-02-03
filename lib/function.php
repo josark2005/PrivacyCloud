@@ -1,12 +1,10 @@
 <?php
 // +----------------------------------------------------------------------
-// | Twocola PHP Engine [ DO IT　EASY ]
+// | Constructed by Jokin [ Think & Do & To Be Better ]
 // +----------------------------------------------------------------------
-// | Copyright (c) 2016-2017 Twocola Studio All rights reserved.
+// | Copyright (c) 2016-2018 Jokin All rights reserved.
 // +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Jokin <327928971@qq.com>
+// | Author: Jokin <Jokin@twocola.com>
 // +----------------------------------------------------------------------
 /**
  * Read Configuration

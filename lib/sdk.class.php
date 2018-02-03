@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | Writed by Jokin [ Think & Do & To Be Better ]
+// | Constructed by Jokin [ Think & Do & To Be Better ]
 // +----------------------------------------------------------------------
 // | Copyright (c) 2016-2018 Jokin All rights reserved.
 // +----------------------------------------------------------------------
@@ -37,16 +37,27 @@ class sdk {
         break;
 
       default:
-        exit("[ERROR]Unknown service provider.");
+        if( C("PAGE") !== "configurate" ){
+          if( !isset($_GET['install']) || $_GET['install'] !== "true" ){
+            router::redirect("configurate");
+          }else{
+            // 兼容 install API
+            if( isset($_POST['sp']) && !empty($_POST['sp']) ){
+              self::$sdkpath = self::PATH_SDK.self::$sdk_autoload[mb_strtoupper($_POST['sp'])];
+            }
+          }
+        }
         break;
     }
-    include self::$sdkpath;
+    if( self::$sdkpath ){
+      include self::$sdkpath;
+    }
   }
 
   /**
    * getUpTolken
    * @param  void
-   * @return void
+   * @return string
   **/
   public static function getUpToken(){
     $auth = new \Qiniu\Auth(C("AK"), C("SK"));
@@ -54,12 +65,13 @@ class sdk {
     $policy = null;
     $upToken = $auth->uploadToken(C("BKT"), null, $expires, $policy, true);
     C("UPTOKEN", $upToken);
+    return $upToken;
   }
 
   /**
    * getUpTolken
    * @param  void
-   * @return void
+   * @return string
   **/
   public static function getFlux(){
     $auth = new \Qiniu\Auth(C("AK"), C("SK"));
@@ -83,12 +95,13 @@ class sdk {
     }
     $flux = (int) round($flux/1024/1024, 2);
     C("FLUX", $flux, true);
+    return $flux;
   }
 
   /**
    * getFiles
    * @param  void
-   * @return void
+   * @return mixed
   **/
   public static function getFiles(){
     $auth = new \Qiniu\Auth(C("AK"), C("SK"));
@@ -101,34 +114,41 @@ class sdk {
     // 列举文件
     list($ret, $err) = $bucketManager->listFiles(C("BKT"), $prefix, $marker, $limit, $delimiter);
     if ($err !== null) {
-        // echo "\n====> list file err: \n";
-        // var_dump($err);
+        return false;
     } else {
-        // if (array_key_exists('marker', $ret)) {
-        //     echo "Marker:" . $ret["marker"] . "\n";
-        // }
-        // echo "\nList Iterms====>\n";
-        // var_dump($ret['items']);
         return $ret['items'];
-        // $json = json_encode($ret['items']);
-        // return $json;
     }
   }
 
   /**
    * delFile
-   * @param  key string
-   * @return boolean
+   * @param  string key
+   * @return mixed
   **/
   public static function delFile($key){
     $auth = new \Qiniu\Auth(C("AK"), C("SK"));
     $config = new \Qiniu\Config();
     $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
     $err = $bucketManager->delete(C("BKT"), $key);
-    if ($err === null) {
-      return true;
-    }else{
-      return false;
+    return $err;
+  }
+
+  /**
+   * getDoamin
+   * @param  string ak
+   * @param  string sk
+   * @param  string bkt
+   * @return mixed
+  **/
+  public static function getDoamin($ak, $sk, $bkt){
+    $auth = new \Qiniu\Auth($ak, $sk);
+    $config = new \Qiniu\Config();
+    $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
+    list($domains, $err) = $bucketManager->domains($bkt);
+    if ($err) {
+        return $err;
+    } else {
+        return $domains;
     }
   }
 }

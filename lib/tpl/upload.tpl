@@ -12,6 +12,7 @@
     <script src="./lib/tpl/js/qiniu.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/main.js" charset="utf-8"></script>
     <script type="text/javascript">
+      var update_basic_url = "__update_basic_url__";
       var uploader;
       $(function(){
         var sp = "__SP__".toUpperCase();
@@ -25,7 +26,7 @@
             get_new_uptoken: false,             // 设置上传文件的时候是否每次都重新获取新的uptoken
             domain: '__DM__',     // bucket域名，下载资源时用到，必需
             container: 'upload',             // 上传区域DOM ID，默认是browser_button的父元素
-            max_file_size: '500mb',             // 最大文件体积限制
+            max_file_size: '1024mb',             // 最大文件体积限制
             max_retries: 3,                     // 上传失败最大重试次数
             dragdrop: true,                     // 开启可拖曳上传
             drop_element: 'upload',          // 拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
@@ -88,35 +89,10 @@
     </script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="javascript:;">
-          <img src="./lib/tpl/img/logo_pc.png" width="30" height="30" alt="logo">
-          Privacy Cloud
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="nav">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="?page=upload">上传</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?page=download">下载</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?page=start">教程</a>
-            </li>
-          </ul>
-          <span class="navbar-text text-white">
-            服务：<span id="SP">null</span> | 流量：<span id="flux">null</span>
-          </span>
-        </div>
-      </div>
-    </nav>
 
-    <div class="container mt-4">
+    {_nav_}
+
+    <div class="container mt-4" id="container">
       <div class="row">
 
         <div class="col-md-6 col-sm-12 mb-2">
@@ -136,7 +112,7 @@
 
         <div class="col-md-6 col-sm-12 mb-2">
           <div class="card">
-            <div class="card-header bg-dark text-white">
+            <div class="card-header bg-secondary text-white">
               <span class="font-weight-bold"><del>离线下载</del>(未开通)</span>
             </div>
             <div class="card-body">
@@ -187,52 +163,7 @@
 
     </div>
 
-    <hr class="mb-0 mt-4">
-
-    <footer class="bg-dark pb-2 pt-4 text-white">
-      <div class="container">
-        <div class="row text-muted">
-          <div class="col-md col-sm-12">
-            <h3 class="text-white">Join Us</h3>
-            <p>
-              <span>后端研发-php</span><br />
-              <span>美术设计</span><br />
-              <span>前端设计-html/css</span><br />
-              <span>前端工程-js</span><br />
-            </p>
-          </div>
-          <div class="col-md col-sm-12">
-            <h3 class="text-white">Relevant Files</h3>
-            <p>
-              <a href="//pc.twocola.com" target="_blank" class="text-muted">官方网站</a><br />
-              <a href="//github.com/jokin1999/PrivacyCloud" target="_blank" class="text-muted">Github仓库</a><br />
-            </p>
-          </div>
-          <div class="col-md col-sm-12">
-            <h3 class="text-white">Staff</h3>
-            <p>
-              <a href="//weibo.com/jkweiyi" target="_blank" class="text-muted">@Jokin</a>
-            </p>
-          </div>
-          <div class="col-md col-sm-12">
-            <h3 class="text-white">Service Provider</h3>
-            <p>
-              <span>七牛云：</span><a href="//portal.qiniu.com/signup?code=3lgquci2quafm" target="_blank" class="text-muted">注册</a> <a href="//www.qiniu.com" target="_blank" class="text-muted">官网</a><br />
-            </p>
-            <small class="text-muted">*仅显示支持的sp</small>
-          </div>
-        </div>
-        <hr class="my-1" />
-        <span class="text-muted">如果您对以上内容有兴趣，您可以发送邮箱到Jokin@twocola.com联系我们。</span><br />
-        <small class="text-muted">当前版本：
-          <span id="current_version">__VERSION__</span>
-        </small>
-        <small class="text-muted">最新版本：
-          <span id="auto_lastest_version">获取中</span>
-          <span id="auto_lastest_version_tip"></span>
-        </small>
-      </div>
-    </footer>
+    {_footer_}
 
   </body>
 </html>

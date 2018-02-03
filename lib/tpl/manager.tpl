@@ -12,23 +12,25 @@
     <script src="./lib/tpl/js/qiniu.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/main.js" charset="utf-8"></script>
     <script type="text/javascript">
+    var update_basic_url = "__update_basic_url__";
       $(function(){
         var sp = "__SP__".toUpperCase();
         var flux = "__FLUX__" + "MB";
         document.getElementById("SP").innerHTML = sp;
         document.getElementById("flux").innerHTML = flux;
       });
-      function del(key){
+      function del(key,hash){
         $.ajax({
-          url: "?page=_del&key="+key,
+          url: "?mode=api&m=del&key="+key,
           dataType: "json",
           timeout: 10000,
           success: function(data){
             console.log(data);
-            if( data.message == "success."){
-              location.href = ""; // 刷新页面
+            if( data.code === "0"){
+              $("tr#"+hash).remove();
+              alert(data.msg_zh);
             }else{
-              alert("删除失败");
+              alert(data.msg_zh+" "+data.msg);
             }
           }
         });
@@ -36,35 +38,10 @@
     </script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="javascript:;">
-          <img src="./lib/tpl/img/logo_pc.png" width="30" height="30" alt="logo">
-          Privacy Cloud
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="nav">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="?page=upload">上传</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?page=download">下载</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?page=start">教程</a>
-            </li>
-          </ul>
-          <span class="navbar-text text-white">
-            服务：<span id="SP">null</span> | 流量：<span id="flux">null</span>
-          </span>
-        </div>
-      </div>
-    </nav>
 
-    <div class="container mt-4">
+    {_nav_}
+
+    <div class="container mt-4" id="container">
 
       <div class="row">
 
@@ -93,6 +70,8 @@
       </div>
 
     </div>
+
+    {_footer_}
 
   </body>
 </html>

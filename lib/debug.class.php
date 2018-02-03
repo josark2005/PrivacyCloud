@@ -6,20 +6,26 @@
 // +----------------------------------------------------------------------
 // | Author: Jokin <Jokin@twocola.com>
 // +----------------------------------------------------------------------
-
 /**
- * Privacy Cloud
+ * Debug Controller
+ * @version 1.0.0
  * @author Jokin
 **/
+namespace PrivacyCloud;
+class debug {
 
-/**
- * 1.3.1自动升级注意
- * 所有配置项已全部整理至入口文件同级目录下config.inc.php
-**/
+  public static function error_report(){
+    if( DEBUG === false ){
+      error_reporting(0);
+    }
+  }
 
+  public static function header_json(){
+    if( DEBUG === false ){
+      header('Content-Type:text/json;charset=utf-8');
+    }
+  }
 
-/* ！以下内容请勿修改 */
-// Load core
-include "./lib/core.class.php";
-\PrivacyCloud\Core::initialize();
+}
+
 ?>
