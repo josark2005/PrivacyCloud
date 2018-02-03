@@ -17,7 +17,7 @@ if( !defined("VERSION") ){
   die("您的Privacy Cloud缺少版本定义信息，建议您手动安装最新版本。");
 }
 
-if( version_compare(VERSION ,"1.3.2" ,"<") ){
+if( version_compare(VERSION ,"1.3.2") === -1 ){
   // restore();
   die("您的版本不支持此项升级，本次升级不可撤销，请手动重新安装。");
 }

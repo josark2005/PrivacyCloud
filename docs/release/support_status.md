@@ -1,4 +1,4 @@
 {
-  "1.3.2": {"version": "1.3.2", "md5": "B7751C5B40AD212DAB74300E83F259A9"},
-  "1.3.1": {"version": "1.3.2", "md5": "B7751C5B40AD212DAB74300E83F259A9"}
+  "1.3.2": {"version": "1.3.2", "md5": "41D2DC0CBC0A6F1EB0E6FC874EFF1699"},
+  "1.3.1": {"version": "1.3.2", "md5": "41D2DC0CBC0A6F1EB0E6FC874EFF1699"}
 }
