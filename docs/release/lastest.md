@@ -6,6 +6,6 @@
   "auto_update_except": false,
   "level": 18,
   "necessity": 6,
-  "releastAt": "2018-01-26",
+  "releastAt": "2018-02-03",
   "is_build": false
 }
