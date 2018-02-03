@@ -54,8 +54,6 @@ $linefeed = PHP_EOL;
 $content = "<?php{$linefeed}\$config=".var_export($opts,true).";";
 file_put_contents("./config.inc.php", $content);
 // 替换index
-$file = file_get_contents("./index.php");
-file_put_contents("./index.php.bak", $file);
 $file = file_get_contents("./index.tpl");
 file_put_contents("./index.php", $file);
 unlink("./index.tpl");
