@@ -61,13 +61,13 @@ class template {
         $zip->addFolder("./lib");
         $zip->addFile("./index.php");
       }
-      if($zip->$errnum !== 0){
+      if($zip->errnum !== 0){
         exit("{\"message\":\"failed to create backup.\"}");
       }
       // 升级
       $basic_url = C("update_basic_url");
       $filename = $_GET['version'].".zip";
-      $file = file_get_contents($basic_url."update/".$filename);
+      $file = @file_get_contents($basic_url."update/".$filename);
       if($file){
         file_put_contents("./_update.zip", $file);
         $file_md5 = mb_strtoupper(MD5($file), "utf-8");
