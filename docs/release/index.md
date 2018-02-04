@@ -40,5 +40,4 @@ name: Privacy Cloud
 
 ## 相关链接 *Relevant Links*
 
-- **最新发布版本** [查看](./lastest.md)(json)
 - **更新日志** [查看](../notice/update_logs.md)
