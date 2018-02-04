@@ -49,7 +49,7 @@ $config=array (
   'DM' => "osciu32fu.bkt.clouddn.com",
   'AA' => false,
   'QD' => "osciu32fu.bkt.clouddn.com",
-  'update_basic_url' => '//raw.githubusercontent.com/jokin1999/PrivacyCloud/master/docs/',
+  'update_basic_url' => '//pc.twocola.com/',
 );
 ```
 

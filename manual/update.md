@@ -6,8 +6,8 @@
 
 > 推荐使用长地址，更稳定。
 
-- `//raw.githubusercontent.com/jokin1999/PrivacyCloud/master/docs/`
 - `//pc.twocola.com/`
+- `//raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/docs/`
 
 ### 第三方更新地址
 
