@@ -6,8 +6,8 @@
 
 > 推荐使用长地址，更稳定。
 
-- `//pc.twocola.com/`
-- `//raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/`
+- `http://pc.twocola.com/`
+- `http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/`
 
 ### 第三方更新地址
 
@@ -35,6 +35,8 @@
 ### 相关F&Q
 
 **如何设置**
+> 打开根目录中的`config.inc.php`文件，若不存在则不支持修改。
+
 > 设置项`update_basic_url`（各版本差异，不区分大小写）设置了获取更新的基本地址。
 
 **设置的必须性**
@@ -49,8 +51,6 @@
 > 官方不鼓励但不反对使用第三方地址，因使用第三方地址造成的后果本项目团队不负责也没有能力负责。
 
 > 使用第三方地址请注意：
-
-> 使用`//`代替`https://`或`http://`，以保证最大的安全性与兼容性。
 
 > 第三方地址请自行确认其安全性。
 
