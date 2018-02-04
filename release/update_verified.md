@@ -1,4 +1,4 @@
 {
-  "//raw.githubusercontent.com/jokin1999/PrivacyCloud/master/docs/",
+  "//raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/docs/",
   "//pc.twocola.com/"
 }
