@@ -10,7 +10,7 @@
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/plupload.full.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/qiniu.min.js" charset="utf-8"></script>
-    <script src="./lib/tpl/js/main.js" charset="utf-8"></script>
+    <script src="./lib/tpl/js/main.js?ver=__VERSION__" charset="utf-8"></script>
     <script type="text/javascript">
       var update_basic_url = "__update_basic_url__";
       var uploader;
