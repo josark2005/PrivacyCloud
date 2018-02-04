@@ -10,25 +10,6 @@
     <script src="./lib/tpl/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-    $(function(){
-      $.ajax({
-        url: "//raw.githubusercontent.com/jokin1999/PrivacyCloud/master/docs/release/lastest.md",
-        complete: function(xml, status){
-          console.log(status);
-        },
-        success: function(data){
-          // current version
-          var current_version = $("#current_version").text();
-          console.log(current_version);
-          // lastest version
-          data = jQuery.parseJSON(data);
-          console.log(data);
-          var lastest_version = data.version;
-          console.log(lastest_version);
-          $("#lastest_version").text(lastest_version);
-        },
-      });
-    });
     function accept_a(){
       $("div#s0").addClass("d-none");
       $("div#s1").addClass("d-none");
@@ -127,20 +108,8 @@
     </script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="javascript:;">
-          <img src="./lib/tpl/img/logo_pc.png" width="30" height="30" alt="logo">
-          Privacy Cloud
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="nav">
-          <span class="navbar-text">配置页<span>
-        </div>
-      </div>
-    </nav>
+    
+    {_nav_}
 
     <div class="container mt-4" id="container">
 
@@ -169,15 +138,14 @@
               <hr />
               <h3># 版本信息</h3>
               <ol>
-                <li>当前版本：__VERSION__</li>
+                <li>主程序版本：__VERSION__</li>
                 <li>内核版本：__CORE_VERSION__</li>
-                <li>官方最新版本：<span id="lastest_version">获取中</span></li>
               </ol>
               <hr />
               <h3># 许可与声明</h3>
               <ol>
                 <li>License：MIT</li>
-                <li>官网：pc.twocola.com</li>
+                <li>官网：<a href="http://pc.twocola.com/" target="_blank">pc.twocola.com</a></li>
                 <li><strong>一旦您完成设置并开始使用，即视为您已阅读并接受免责声明！</strong></li>
               </ol>
             </div>

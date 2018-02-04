@@ -6,5 +6,5 @@ $config=array (
   'BKT' => '',
   'DM' => false,
   'QD' => false,
-  'update_basic_url' => '//raw.githubusercontent.com/jokin1999/PrivacyCloud/master/docs/',
+  'update_basic_url' => 'http://pc.twocola.com/',
 );

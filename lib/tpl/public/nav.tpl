@@ -18,6 +18,9 @@
         <li class="nav-item">
           <a class="nav-link" href="?page=about">关于</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="?page=configurate">配置</a>
+        </li>
       </ul>
       <span class="navbar-text text-white">
         服务：<span id="SP">null</span> | 流量：<span id="flux">null</span>
