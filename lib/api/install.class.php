@@ -35,7 +35,7 @@ class install {
     }
   }
   public function setOptions(){
-    if( isset($_POST['ak'], $_POST['sk'], $_POST['bkt'], $_POST['sp'], $_POST['dm'], $_POST['qd']) ){
+    if( isset($_POST['ak'], $_POST['sk'], $_POST['bkt'], $_POST['sp'], $_POST['dm'], $_POST['qd'], $_POST['upd']) ){
       if( !is_file("./config.inc.php") ){
         $err['code'] = "JPCAD03";
         $err['msg'] = "confinguration file lost";
@@ -49,13 +49,21 @@ class install {
       $config["BKT"] = $_POST['bkt'];
       $config["DM"] = $_POST['dm'];
       $config["QD"] = $_POST['qd'];
+      $config["UPDATE_BASIC_URL"] = $_POST['upd'];
       $linefeed = PHP_EOL;
       $content = "<?php{$linefeed}\$config=".var_export($config,true).";";
-      file_put_contents("./config.inc.php", $content);
-      $err['code'] = "0";
-      $err['msg'] = "success";
-      $err['msg_zh'] = "设置成功";
-      exit(json_encode($err));
+      $res = file_put_contents("./config.inc.php", $content);
+      if( $res ){
+        $err['code'] = "0";
+        $err['msg'] = "success";
+        $err['msg_zh'] = "设置成功";
+        exit(json_encode($err));
+      }else{
+        $err['code'] = "JPCAD04";
+        $err['msg'] = "failed to write confinguration file";
+        $err['msg_zh'] = "设置文件无法写入";
+        exit(json_encode($err));
+      }
     }else{
       $err['code'] = "JPCAE01";
       $err['msg'] = "bad infomation";

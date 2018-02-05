@@ -10,6 +10,12 @@
     <script src="./lib/tpl/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script type="text/javascript">
+    $(function(){
+      var sp = "__SP__".toUpperCase();
+      var flux = "__FLUX__" + "MB";
+      document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
+      document.getElementById("flux").innerHTML = flux;
+    });
     function accept_a(){
       $("div#s0").addClass("d-none");
       $("div#s1").addClass("d-none");
@@ -31,6 +37,7 @@
       }
       $("div#s2").addClass("d-none");
       $("div#s3").removeClass("d-none");
+      $("#domain_p").removeClass("d-none");
       var ajax = $.ajax({
         url: "?mode=api&install=true&a=install&m=getDomain",
         data: {"sp":sp, "ak":ak, "sk":sk, "bkt":bkt},
@@ -54,9 +61,8 @@
             $("#qd").val(qd);
             return ;
           }else{
-            ajax.abort();
-            alert("获取失败：" + data.msg + " [" + data.code +"]");
-            back2b();
+            $("#domain_p").addClass("d-none");
+            alert("获取域名失败：" + data.msg + " [" + data.code +"]");
             return ;
           }
         }
@@ -66,6 +72,14 @@
       $("div#s2").removeClass("d-none");
       $("div#s3").addClass("d-none");
     }
+    function accept_c(){
+      $("div#s3").addClass("d-none");
+      $("div#s4").removeClass("d-none");
+    }
+    function back2c(){
+      $("div#s3").removeClass("d-none");
+      $("div#s4").addClass("d-none");
+    }
     function accept(){
       var sp = $("#sp").val();
       var ak = $("#ak").val();
@@ -73,13 +87,14 @@
       var bkt = $("#bkt").val();
       var dm = $("#dm").val();
       var qd = $("#qd").val();
-      if( sp === "null" || ak === "" || sk === "" || bkt === "" || dm ==="" || qd === "" ){
+      var upd = $("#upd").val();
+      if( sp === "null" || ak === "" || sk === "" || bkt === "" || dm ==="" || qd === "" || upd === "" ){
         alert("信息不完整，请返回重新填写");
         return ;
       }
       var ajax = $.ajax({
         url: "?mode=api&install=true&a=install&m=setOptions",
-        data: {"sp":sp, "ak":ak, "sk":sk, "bkt":bkt, "dm":dm, "qd":qd},
+        data: {"sp":sp, "ak":ak, "sk":sk, "bkt":bkt, "dm":dm, "qd":qd, "upd":upd},
         type: "post",
         dataType: "json",
         timeout: 10000,
@@ -108,7 +123,7 @@
     </script>
   </head>
   <body>
-    
+
     {_nav_}
 
     <div class="container mt-4" id="container">
@@ -231,8 +246,29 @@
                 <hr />
 
                 <div class="clearfix">
-                  <button type="button" class="btn btn-outline-danger float-right" onclick="accept();">保存设置</button>
+                  <button type="button" class="btn btn-outline-danger float-right" onclick="accept_c();">继续设置</button>
                   <button type="button" class="btn btn-outline-secondary float-right mr-2" onclick="back2b();">上一步</button>
+                </div>
+              </div>
+
+              <div class="d-none" id="s4" name="s4">
+
+                <div class="alert alert-danger" role="alert">
+                  不知道如何设置此项？默认即可！
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="_upd">更新地址 UPD</span>
+                  </div>
+                  <input type="text" class="form-control" id="upd" aria-describedby="_upd" placeholder="http://pc.twocola.com/" value="__update_basic_url__">
+                </div>
+
+                <hr />
+
+                <div class="clearfix">
+                  <button type="button" class="btn btn-outline-danger float-right" onclick="accept();">保存设置</button>
+                  <button type="button" class="btn btn-outline-secondary float-right mr-2" onclick="back2c();">上一步</button>
                 </div>
               </div>
 

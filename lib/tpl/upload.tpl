@@ -17,7 +17,7 @@
       $(function(){
         var sp = "__SP__".toUpperCase();
         var flux = "__FLUX__" + "MB";
-        document.getElementById("SP").innerHTML = sp;
+        document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
         document.getElementById("flux").innerHTML = flux;
         uploader = Qiniu.uploader({
             runtimes: 'html5,html4',      // 上传模式，依次退化

@@ -12,11 +12,14 @@
     <script src="./lib/tpl/js/qiniu.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/main.js?ver=__VERSION__" charset="utf-8"></script>
     <script type="text/javascript">
-    var update_basic_url = "__update_basic_url__";
+      var update_basic_url = "__update_basic_url__";
+      var danger_code = "___DANGER__";
+      var danger_msg = "___DANGER_MSG__";
+      var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
       $(function(){
         var sp = "__SP__".toUpperCase();
         var flux = "__FLUX__" + "MB";
-        document.getElementById("SP").innerHTML = sp;
+        document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
         document.getElementById("flux").innerHTML = flux;
       });
       function del(key,hash){

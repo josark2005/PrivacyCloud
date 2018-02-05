@@ -10,11 +10,11 @@
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/main.js?ver=__VERSION__" charset="utf-8"></script>
     <script type="text/javascript">
-    var update_basic_url = "__update_basic_url__";
+      var update_basic_url = "__update_basic_url__";
       $(function(){
         var sp = "__SP__".toUpperCase();
         var flux = "__FLUX__" + "MB";
-        document.getElementById("SP").innerHTML = sp;
+        document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
         document.getElementById("flux").innerHTML = flux;
       });
     </script>

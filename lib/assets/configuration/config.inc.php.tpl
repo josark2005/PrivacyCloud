@@ -6,5 +6,5 @@ $config=array (
   'BKT' => '',
   'DM' => false,
   'QD' => false,
-  'update_basic_url' => 'http://pc.twocola.com/',
+  'UPDATE_BASIC_URL' => 'http://pc.twocola.com/',
 );

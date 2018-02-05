@@ -26,8 +26,8 @@ class Core {
       die("您的环境不支持运行Privacy Cloud，要求PHP版本大于等于5.6.0");
     }
     // 版本信息
-    define("VERSION", "1.4.2");
-    define("CORE_VERSION", "2.0.0-beta.2");
+    define("VERSION", "1.4.3");
+    define("CORE_VERSION", "2.0.0-beta.3");
     // 注册autoload方法
     spl_autoload_register("PrivacyCloud\Core::autoload");
     // 关闭报错
@@ -42,14 +42,10 @@ class Core {
     self::verify();
     // 解析路径
     router::analyze($_GET);
+    // 初始化
+    initialize::atCore();
     // 载入SDK
     sdk::loader();
-    if( C("PAGE") !== "configurate" && C("MODE") !== router::MODE_API ){
-      // 获取FLUX
-      sdk::getFlux();
-      // 获取UPTOKEN
-      sdk::getUpToken();
-    }
     if( C("MODE") === router::MODE_API ){
       api::run();
     }else{

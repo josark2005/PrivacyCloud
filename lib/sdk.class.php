@@ -51,6 +51,10 @@ class sdk {
     }
     if( self::$sdkpath ){
       include self::$sdkpath;
+      // 获取FLUX
+      sdk::getFlux();
+      // 获取UPTOKEN
+      sdk::getUpToken();
     }
   }
 
