@@ -53,5 +53,26 @@ class safety {
       echo json_encode($err);
     }
   }
+
+  public function delUpd(){
+    if( is_file("./_update.zip") ){
+      if( !unlink("./_update.zip") ){
+        $err['code'] = "JPCAD01";
+        $err['msg'] = "failed to delete the backup";
+        $err['msg_zh'] = "删除备份文件失败";
+        echo json_encode($err);
+      }else{
+        $err['code'] = "0";
+        $err['msg'] = "success";
+        $err['msg_zh'] = "删除成功！";
+        echo json_encode($err);
+      }
+    }else{
+      $err['code'] = "JPCAD02";
+      $err['msg'] = "could not find the backup";
+      $err['msg_zh'] = "找不到备份文件";
+      echo json_encode($err);
+    }
+  }
 }
 ?>

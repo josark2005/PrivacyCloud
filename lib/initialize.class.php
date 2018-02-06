@@ -44,7 +44,7 @@ class initialize {
       C("_DANGER", "可能存在重要备份文件被下载的隐患");
       C("_DANGER_MSG", "可能存在重要备份文件被下载的隐患");
       C("_DANGER_API_FILE", "safety");
-      C("_DANGER_API_METHOD", "delBak");
+      C("_DANGER_API_METHOD", "delUpd");
     }
   }
 }
