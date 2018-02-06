@@ -1,9 +1,9 @@
 {
-  "1.4.4": {"version": "1.4.4", "md5": "9797C4DF2659369A8BDB8BFC9926AE98"},
-  "1.4.3": {"version": "1.4.4", "md5": "9797C4DF2659369A8BDB8BFC9926AE98"},
-  "1.4.2": {"version": "1.4.4", "md5": "9797C4DF2659369A8BDB8BFC9926AE98"},
-  "1.4.1": {"version": "1.4.4", "md5": "9797C4DF2659369A8BDB8BFC9926AE98"},
-  "1.4.0": {"version": "1.4.4", "md5": "9797C4DF2659369A8BDB8BFC9926AE98"},
+  "1.4.4": {"version": "1.4.4", "md5": "0D1DC7F9AB5A903C2BD7216E5D36708B"},
+  "1.4.3": {"version": "1.4.4", "md5": "0D1DC7F9AB5A903C2BD7216E5D36708B"},
+  "1.4.2": {"version": "1.4.4", "md5": "0D1DC7F9AB5A903C2BD7216E5D36708B"},
+  "1.4.1": {"version": "1.4.4", "md5": "0D1DC7F9AB5A903C2BD7216E5D36708B"},
+  "1.4.0": {"version": "1.4.4", "md5": "0D1DC7F9AB5A903C2BD7216E5D36708B"},
   "1.3.2": {"version": "1.4.0", "md5": "978AFF79FDD795DEE9C6E5DA598574AE"},
   "1.3.1": {"version": "1.3.2", "md5": "F81C29068990F16357B4FFCEFBED080F"}
 }
