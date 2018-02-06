@@ -77,7 +77,7 @@
               <div class="alert alert-primary">欢迎使用Privacy Cloud！</div>
 
               <div class="input-group mb-3">
-                <input type="text" id="pw" class="form-control" placeholder="授权密码 Authorization Password" autofocus="autofocus" />
+                <input type="password" id="pw" class="form-control" placeholder="授权密码 Authorization Password" autofocus="autofocus" />
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" id="btn" type="button" onclick="javascript:login();">登录</button>
                 </div>
