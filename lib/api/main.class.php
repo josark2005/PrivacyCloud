@@ -12,6 +12,32 @@
  * @author Jokin
 **/
 class main {
+  public function login(){
+    if( isset($_POST['pw']) && !empty($_POST['pw']) ){
+      if( $_POST['pw'] === C("AUTH_PW") ){
+        $token = MD5(md5($_POST['pw']."PrivacyCloud2017"));
+        setcookie("token", $token, time() + 3600);
+        $err['code'] = "0";
+        $err['msg'] = "success";
+        $err['msg_zh'] = "登录成功";
+        echo json_encode($err);
+      }else{
+        $err['code'] = "JPCAE005";
+        $err['msg'] = "bad token.";
+        $err['msg_zh'] = "口令不合法或错误";
+        exit(json_encode($err));
+      }
+    }else{
+      $err['code'] = "JPCAE01";
+      $err['msg'] = "bad infomation";
+      $err['msg_zh'] = "提交的数据不合法";
+      echo json_encode($err);
+    }
+  }
+  public function logout(){
+    setcookie("token", null, time()-1 );
+    PrivacyCloud\router::redirect("login");
+  }
   public function update(){
     // update
     if( isset($_GET['version']) && !empty($_GET['version']) ){

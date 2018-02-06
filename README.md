@@ -1,6 +1,6 @@
 # Privacy Cloud
 
-针对极客用户开发的私有云对象存储管理方案
+私有云对象存储管理方案
 
 `作者: Jokin`
 
@@ -12,10 +12,6 @@
 
 
 [![GitHub Tag](https://img.shields.io/github/tag/jokin1999/PrivacyCloud.svg?style=flat-square)](https://raw.githubusercontent.com/jokin1999/PrivacyCloud/master)
-
----
-
-> 单纯的需求，用最单纯的方式满足。
 
 ---
 

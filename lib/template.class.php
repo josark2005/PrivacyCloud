@@ -13,15 +13,15 @@ namespace PrivacyCloud;
  * @author Jokin
 **/
 class template {
+  public static $public_page = array("login");
+
   public static $page = "upload";
 
   public static function run(){
-    if( !isset($_GET['page']) || $_GET['page'] == "index" ){
-      self::$page = "index";
-    }else{
-      self::$page = $_GET['page'];
-    }
-    $page = self::$page;
+    // 授权管理
+    self::auth();
+    $page = self::$page = P;  // 初始页面在初始化类中设置
+    // 默认跳转页
     if( !is_file("./lib/tpl/{$page}.tpl") ){
       $page = "upload";  // 页面不存在自动跳转到首页
       self::$page = "upload";
@@ -106,6 +106,14 @@ class template {
       }
     }
     return $content;
+  }
+
+  private static function auth(){
+    $auth = safety::is_auth();
+    if( !$auth && !in_array(P, self::$public_page, true) ){
+      router::redirect("login");
+      exit();
+    }
   }
 
 }

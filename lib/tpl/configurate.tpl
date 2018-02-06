@@ -10,14 +10,16 @@
     <script src="./lib/tpl/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script type="text/javascript">
+    var sp = "__SP__".toUpperCase();
+    var flux = "__FLUX__" + "MB";
     var danger_code = "___DANGER__";
     var danger_msg = "___DANGER_MSG__";
     var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
     $(function(){
-      var sp = "__SP__".toUpperCase();
-      var flux = "__FLUX__" + "MB";
       document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
       document.getElementById("flux").innerHTML = flux;
+      // active fix
+      $("option[value="+sp+"]").attr("selected", "selected");
     });
     function accept_a(){
       $("div#s0").addClass("d-none");
@@ -91,21 +93,20 @@
       var dm = $("#dm").val();
       var qd = $("#qd").val();
       var upd = $("#upd").val();
+      var auth_pw = $("#auth_pw").val();
       if( sp === "null" || ak === "" || sk === "" || bkt === "" || dm ==="" || qd === "" || upd === "" ){
         alert("信息不完整，请返回重新填写");
         return ;
       }
       var ajax = $.ajax({
         url: "?mode=api&install=true&a=install&m=setOptions",
-        data: {"sp":sp, "ak":ak, "sk":sk, "bkt":bkt, "dm":dm, "qd":qd, "upd":upd},
+        data: {"sp":sp, "ak":ak, "sk":sk, "bkt":bkt, "dm":dm, "qd":qd, "upd":upd, "auth_pw":auth_pw},
         type: "post",
         dataType: "json",
         timeout: 10000,
         complete: function(Http, status){
           if( status === "timeout" ){
-            ajax.abort();
             alert("连接服务器超时");
-            back2b();
             return ;
           }
         },
@@ -115,9 +116,7 @@
             location.href="?page=index";
             return ;
           }else{
-            ajax.abort();
             alert("设置失败：" + data.msg + " [" + data.code +"]");
-            back2b();
             return ;
           }
         }
@@ -204,21 +203,21 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_ak">Access Key</span>
                   </div>
-                  <input type="text" class="form-control" id="ak" aria-describedby="_ak" placeholder="请输入Access Key">
+                  <input type="text" class="form-control" id="ak" aria-describedby="_ak" placeholder="请输入Access Key" value="__AK__">
                 </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_sk">Secret Key</span>
                   </div>
-                  <input type="text" class="form-control" id="sk" aria-describedby="_sk" placeholder="请输入Secret Key">
+                  <input type="text" class="form-control" id="sk" aria-describedby="_sk" placeholder="请输入Secret Key" value="__SK__">
                 </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_bkt">Bucket名称 BKT</span>
                   </div>
-                  <input type="text" class="form-control" id="bkt" aria-describedby="_bkt" placeholder="请输入Bucket名称">
+                  <input type="text" class="form-control" id="bkt" aria-describedby="_bkt" placeholder="请输入Bucket名称" value="__BKT__">
                 </div>
 
                 <hr />
@@ -232,6 +231,10 @@
               <div class="d-none" id="s3" name="s3">
                 <p class="text-center" id="domain_p"><i class="fa-spin fab fa-cloudscale"></i> 获取BKT信息中，请稍候。。。</p>
 
+                <div class="alert alert-danger" role="alert">
+                  已为您自动填写最新的数据，如无需修改，请参照下方原信息修改。
+                </div>
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_dm">使用域名 DM</span>
@@ -239,11 +242,21 @@
                   <input type="text" class="form-control" id="dm" aria-describedby="_dm" placeholder="请输入域名">
                 </div>
 
+                <div class="alert alert-primary" role="alert">
+                  DM原信息（不修改请复制下面的信息至上方输入框）：<br />
+                  __DM__
+                </div>
+
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_qd">流量查询域名 QD</span>
                   </div>
                   <input type="text" class="form-control" id="qd" aria-describedby="_qd" placeholder="请输入域名">
+                </div>
+
+                <div class="alert alert-primary" role="alert">
+                  QD原信息（不修改请复制下面的信息至上方输入框）：<br />
+                  __QD__
                 </div>
 
                 <hr />
@@ -256,7 +269,7 @@
 
               <div class="d-none" id="s4" name="s4">
 
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-primary" role="alert">
                   不知道如何设置此项？默认即可！
                 </div>
 
@@ -264,7 +277,18 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_upd">更新地址 UPD</span>
                   </div>
-                  <input type="text" class="form-control" id="upd" aria-describedby="_upd" placeholder="http://pc.twocola.com/" value="__update_basic_url__">
+                  <input type="text" class="form-control" id="upd" aria-describedby="_upd" placeholder="http://pc.twocola.com/" value="__UPDATE_BASIC_URL__">
+                </div>
+
+                <div class="alert alert-danger" role="alert">
+                  <strong>警告！</strong>下方密码设置后请一定牢记，下次打开需要填写密码才可以进入！留空则取消密码。
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="_auth_pw">授权密码 AUTH_PW</span>
+                  </div>
+                  <input type="text" class="form-control" id="auth_pw" aria-describedby="_auth_pw" placeholder="请输入授权密码" value="__AUTH_PW__">
                 </div>
 
                 <hr />

@@ -38,7 +38,11 @@ class router {
    * @return void
   **/
   static public function redirect($path){
-    header("Location: ?page={$path}");
+    if( is_file("./lib/tpl/{$path}.tpl") ){
+      header("Location: ?page={$path}");
+    }else{
+      die("[Router]您要访问的页面不存在，请检查程序是否完整！");
+    }
   }
 
 }

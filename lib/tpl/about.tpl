@@ -10,13 +10,13 @@
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/main.js?ver=__VERSION__" charset="utf-8"></script>
     <script type="text/javascript">
+      var sp = "__SP__".toUpperCase();
+      var flux = "__FLUX__" + "MB";
       var update_basic_url = "__update_basic_url__";
       var danger_code = "___DANGER__";
       var danger_msg = "___DANGER_MSG__";
       var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
       $(function(){
-        var sp = "__SP__".toUpperCase();
-        var flux = "__FLUX__" + "MB";
         document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
         document.getElementById("flux").innerHTML = flux;
       });
@@ -29,7 +29,7 @@
     <div class="jumbotron pb-2">
       <div class="container">
         <h1 class="display-4">Privacy Cloud</h1>
-        <p class="lead">针对个人设计的私有云对象存储服务管理一站式解决方案</p>
+        <p class="lead">私有云对象存储服务管理一站式解决方案</p>
         <hr class="my-4">
         <p>如果有问题请先阅读<a href="//github.com/jokin1999/PrivacyCloud/blob/master/README.md" target="_blank">Readme</a>文档。</p>
         <p class="lead">

@@ -16,9 +16,9 @@ class install {
     if( isset($_POST['ak'], $_POST['sk'], $_POST['bkt'], $_POST['sp']) ){
       $domain = PrivacyCloud\sdk::getDoamin($_POST['ak'], $_POST['sk'], $_POST['bkt']);
       if( method_exists($domain, "message") ){
-        $err['code'] = "JPCAE01";
+        $err['code'] = "JPCAE02";
         $err['msg'] = $domain->message();
-        $err['msg_zh'] = "获取失败";
+        $err['msg_zh'] = "获取Domain失败";
         exit(json_encode($err));
       }else{
         $err['code'] = "0";
@@ -35,7 +35,7 @@ class install {
     }
   }
   public function setOptions(){
-    if( isset($_POST['ak'], $_POST['sk'], $_POST['bkt'], $_POST['sp'], $_POST['dm'], $_POST['qd'], $_POST['upd']) ){
+    if( isset($_POST['ak'], $_POST['sk'], $_POST['bkt'], $_POST['sp'], $_POST['dm'], $_POST['qd'], $_POST['upd'], $_POST['auth_pw']) ){
       if( !is_file("./config.inc.php") ){
         $err['code'] = "JPCAD03";
         $err['msg'] = "confinguration file lost";
@@ -49,6 +49,7 @@ class install {
       $config["BKT"] = $_POST['bkt'];
       $config["DM"] = $_POST['dm'];
       $config["QD"] = $_POST['qd'];
+      $config["AUTH_PW"] = $_POST['auth_pw'];
       $config["UPDATE_BASIC_URL"] = $_POST['upd'];
       $linefeed = PHP_EOL;
       $content = "<?php{$linefeed}\$config=".var_export($config,true).";";
