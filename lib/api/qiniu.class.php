@@ -34,5 +34,20 @@ class qiniu {
       echo json_encode($err);
     }
   }
+  public function download(){
+    if( isset($_GET['url']) && !empty($_GET['url']) ){
+      $res = PrivacyCloud\sdk::getDownloadUrl($_GET['url']);
+      $err['code'] = "0";
+      $err['msg'] = "success";
+      $err['msg_zh'] = "成功获取下载链接";
+      $err['data'] = $res;
+      echo json_encode($err);
+    }else{
+      $err['code'] = "JPCAE01";
+      $err['msg'] = "bad infomation";
+      $err['msg_zh'] = "提交的数据不合法";
+      echo json_encode($err);
+    }
+  }
 }
 ?>

@@ -38,6 +38,26 @@
           }
         });
       }
+      function downloader(url){
+        $.ajax({
+          url: "?mode=api&m=download&url="+url,
+          dataType: "json",
+          timeout: 10000,
+          complete: function(XMLHttpRequest, status){
+            if( status === "timeout" ){
+              alert("连接服务器超时，请稍候再试");
+            }
+          },
+          success: function(data){
+            console.log(data);
+            if( data.code === "0"){
+              window.open(data.data);
+            }else{
+              alert(data.msg_zh+" "+data.code);
+            }
+          }
+        });
+      }
     </script>
   </head>
   <body>

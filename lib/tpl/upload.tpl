@@ -14,6 +14,9 @@
     <script type="text/javascript">
       var update_basic_url = "__update_basic_url__";
       var uploader;
+      var danger_code = "___DANGER__";
+      var danger_msg = "___DANGER_MSG__";
+      var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
       $(function(){
         var sp = "__SP__".toUpperCase();
         var flux = "__FLUX__" + "MB";
@@ -101,7 +104,7 @@
               <span class="font-weight-bold">数据上传</span>
             </div>
             <div class="card-body" id="upload">
-              <button class="btn btn-primary btn-block mb-2" id="pickfiles">选择文件或拖动到这里上传</button>
+              <button class="btn btn-primary btn-block my-4" id="pickfiles">选择文件或拖动到这里上传</button>
               <ul class="list-group" id="upload_list"></ul>
             </div>
             <div class="card-footer text-muted">
@@ -112,53 +115,23 @@
 
         <div class="col-md-6 col-sm-12 mb-2">
           <div class="card">
-            <div class="card-header bg-secondary text-white">
-              <span class="font-weight-bold"><del>离线下载</del>(未开通)</span>
+            <div class="card-header bg-dark text-white">
+              <span class="font-weight-bold">友情提示</span>
             </div>
             <div class="card-body">
-              <form>
-                <div class="input-group mb-3">
-                  <input type="url" class="form-control" placeholder="请输入源文件地址" aria-label="请输入源文件地址" aria-describedby="basic-addon2" disabled>
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary disabled" aria-disabled="true" type="submit" disabled>离线下载</button>
-                  </div>
-                </div>
-              </form>
+              <ul>
+                <li>请勿滥用，所有对资源操作的行为都是计费的；（以下免费额度信息以七牛为例）</li>
+                <li>未实名账户为10w次GET（可以理解为下载），1w次PUT（可以理解为对资源的操作）；</li>
+                <li>已实名账户为100w次GET，10w次PUT;</li>
+                <li>*即日起实测非实名用户不可创建Bucket。</li>
+              </ul>
             </div>
             <div class="card-footer text-muted">
-              <small>*每次只能同时下载一个文件，获取大型文件可能会出现失败/超时。</small>
+              <small>*一切数据以存储服务提供商提供的最终数据为准。</small>
             </div>
           </div>
         </div>
 
-      </div>
-
-      <div class="card">
-        <div class="card-header bg-dark text-white">
-          <span class="font-weight-bold">F&Q</span>
-        </div>
-        <div class="card-body">
-          <h3># 无法上传/上传失败</h3>
-          <ol>
-            <li>没有完善设置，系统无法读取"DM"设置。</li>
-            <li>AK/SK错误。</li>
-          </ol>
-          <hr />
-          <h3># 大型文件无法上传</h3>
-          <ol>
-            <li>默认单文件最大500M，可以自行修改。</li>
-          </ol>
-          <hr />
-          <h3># 更新后流量信息不见了</h3>
-          <ol>
-            <li>流量与当前服务商信息已经移动至顶部导航区域，大屏幕在顶部最右侧，小屏幕（移动端）请顶部最右侧“更多”按钮，在展开的区块中的最底部。</li>
-          </ol>
-          <hr />
-          <h3># 在线播放</h3>
-          <ol>
-            <li>后续会进行支持。</li>
-          </ol>
-        </div>
       </div>
 
     </div>

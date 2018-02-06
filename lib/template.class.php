@@ -31,15 +31,15 @@ class template {
     // download
     if( self::$page == "manager" ){
       $files = sdk::getFiles();
-      $_c = "<tr id='~~#3'><td class=\"text-truncate\">~~#1</td><td>~~#2 M</td><td>";
+      $_c = "<tr id='~~#3!'><td class=\"text-truncate\">~~#1!</td><td>~~#2! M</td><td>";
       $_content = "";
       if( is_array($files) ){
         foreach ($files as $key => $file) {
           $_temp = $_c;
-          $_handle = "<a class=\"text-primary\" href=\"//".C("DM")."/".$file['key']."\" target=\"_blank\">下载</a> | <a class=\"text-danger\" href=\"javascript:;\" onclick=\"javascript:del('{$file['key']}','{$file['hash']}');\">删除</a>";
-          $_temp = str_replace("~~#1", $file['key'], $_temp);
-          $_temp = str_replace("~~#2", round($file['fsize']/1024/1024, 2), $_temp);
-          $_temp = str_replace("~~#3", $file['hash'], $_temp);
+          $_handle = "<a class=\"text-primary\" href=\"javascript:;\" onclick=\"downloader('http://".C("DM")."/".$file['key']."');\">下载</a> | <a class=\"text-danger\" href=\"javascript:;\" onclick=\"javascript:del('{$file['key']}','{$file['hash']}');\">删除</a>";
+          $_temp = str_replace("~~#1!", $file['key'], $_temp);
+          $_temp = str_replace("~~#2!", round($file['fsize']/1024/1024, 2), $_temp);
+          $_temp = str_replace("~~#3!", $file['hash'], $_temp);
           $_temp .= $_handle."</td></tr>";
           $_content .= $_temp;
         }

@@ -10,6 +10,9 @@
     <script src="./lib/tpl/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script type="text/javascript">
+    var danger_code = "___DANGER__";
+    var danger_msg = "___DANGER_MSG__";
+    var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
     $(function(){
       var sp = "__SP__".toUpperCase();
       var flux = "__FLUX__" + "MB";

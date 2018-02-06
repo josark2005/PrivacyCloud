@@ -26,7 +26,7 @@ class Core {
       die("您的环境不支持运行Privacy Cloud，要求PHP版本大于等于5.6.0");
     }
     // 版本信息
-    define("VERSION", "1.4.3");
+    define("VERSION", "1.4.4");
     define("CORE_VERSION", "2.0.0-beta.3");
     // 注册autoload方法
     spl_autoload_register("PrivacyCloud\Core::autoload");

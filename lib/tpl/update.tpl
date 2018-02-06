@@ -11,6 +11,9 @@
     <script type="text/javascript">
       var version = "__VERSION__";
       var lastest_version = "__VERSION__";
+      var danger_code = "___DANGER__";
+      var danger_msg = "___DANGER_MSG__";
+      var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
       function getLastestVer(){
         var ajax = $.ajax({
           url: "?mode=api&a=main&m=getLastestVer",

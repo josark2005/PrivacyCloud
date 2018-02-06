@@ -155,5 +155,18 @@ class sdk {
         return $domains;
     }
   }
+
+  /**
+   * getDownloadUrl
+   * @param  string ak
+   * @param  string sk
+   * @param  string bkt
+   * @return mixed
+  **/
+  public static function getDownloadUrl($url){
+    $auth = new \Qiniu\Auth($ak, $sk);
+    $signedUrl = $auth->privateDownloadUrl($url);
+    return $signedUrl;
+  }
 }
 ?>
