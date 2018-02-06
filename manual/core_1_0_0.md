@@ -1,6 +1,4 @@
-# Privacy Cloud
-
-## 设置方法
+# 设置方法
 
 - [下载](https://github.com/jokin1999/PrivacyCloud/releases)源码
 - 解压文件

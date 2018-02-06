@@ -1,10 +1,8 @@
-# Privacy Cloud
-
-## 高级更新
+# 高级更新
 
 ### 官方更新地址
 
-> 推荐使用长地址，更稳定。
+> 推荐使用短地址，更稳定、安全、长效。
 
 - `http://pc.twocola.com/`
 - `http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/`

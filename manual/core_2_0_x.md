@@ -1,6 +1,4 @@
-# Privacy Cloud
-
-## 设置方法
+# 设置方法
 
 ### 内核2.0.0-beta.1
 - 运行入口文件`index.php`
