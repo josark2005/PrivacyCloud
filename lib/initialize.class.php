@@ -31,8 +31,16 @@ class initialize {
       C("_DANGER_API_METHOD", "delIndexBak");
     }
     // 备份包
-    if( is_file("./__pcbkup.zip") ){
+    if( is_file("./_pcbkup.zip") ){
       C("_DANGER", "R-2");
+      C("_DANGER", "可能存在重要备份文件被下载的隐患");
+      C("_DANGER_MSG", "可能存在重要备份文件被下载的隐患");
+      C("_DANGER_API_FILE", "safety");
+      C("_DANGER_API_METHOD", "delBak");
+    }
+    // 升级包
+    if( is_file("./_update.zip") ){
+      C("_DANGER", "R-3");
       C("_DANGER", "可能存在重要备份文件被下载的隐患");
       C("_DANGER_MSG", "可能存在重要备份文件被下载的隐患");
       C("_DANGER_API_FILE", "safety");
