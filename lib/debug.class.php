@@ -8,20 +8,20 @@
 // +----------------------------------------------------------------------
 /**
  * Debug Controller
- * @version 1.0.0
+ * @version 1.0.1
  * @author Jokin
 **/
 namespace PrivacyCloud;
 class debug {
 
   public static function error_report(){
-    if( DEBUG === false ){
+    if( C("DEBUG") === false ){
       error_reporting(0);
     }
   }
 
   public static function header_json(){
-    if( DEBUG === false ){
+    if( C("DEBUG") === false ){
       header('Content-Type:text/json;charset=utf-8');
     }
   }

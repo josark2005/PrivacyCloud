@@ -19,23 +19,21 @@ class Core {
    * @return void
   **/
   public static function initialize(){
-    // debug
-    define("DEBUG", true);
     // 环境版本判断
     if( version_compare(PHP_VERSION ,"5.6.0" ,"<") ){
       die("您的环境不支持运行Privacy Cloud，要求PHP版本大于等于5.6.0");
     }
     // 版本信息
     define("VERSION", "1.4.4");
-    define("CORE_VERSION", "2.0.0-beta.3");
+    define("CORE_VERSION", "2.0.0-beta.4");
     // 注册autoload方法
     spl_autoload_register("PrivacyCloud\Core::autoload");
-    // 关闭报错
-    debug::error_report();
     // 载入系统配置
     configuration::init()->analyzeConf("./config.inc.php", "config");
     // 载入系统方法
     include("./lib/function.php");
+    // 关闭报错
+    debug::error_report();
     // 安装更新
     self::exec_update();
     // 检查系统完整性
