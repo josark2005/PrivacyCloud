@@ -1,7 +1,3 @@
----
-title: Privacy Cloud
-name: Privacy Cloud
----
 # Privacy Cloud
 
 *针对极客用户开发的私有云对象存储管理方案*
