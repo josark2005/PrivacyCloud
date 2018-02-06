@@ -1,4 +1,5 @@
 {
+  "1.4.5": {"version": "1.4.5", "md5": "null"},
   "1.4.4": {"version": "1.4.4", "md5": "0D1DC7F9AB5A903C2BD7216E5D36708B"},
   "1.4.3": {"version": "1.4.4", "md5": "0D1DC7F9AB5A903C2BD7216E5D36708B"},
   "1.4.2": {"version": "1.4.4", "md5": "0D1DC7F9AB5A903C2BD7216E5D36708B"},
