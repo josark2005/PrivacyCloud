@@ -20,13 +20,12 @@
         console.log(current_version);
         // lastest version
         data = jQuery.parseJSON(data);
-        console.log(data);
-        if( $.inArray(current_version, data) === -1 ){
+        console.log();
+        if( typeof(data[current_version]) === "undefined" ){
           $("#auto_lastest_version").text("获取失败[F-1]");
           return ;
         }
         var lastest_version = data[current_version].version;
-        console.log(lastest_version);
         $("#auto_lastest_version").text(lastest_version);
         // version compare
         if( current_version != lastest_version){
