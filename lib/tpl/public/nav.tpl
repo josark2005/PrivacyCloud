@@ -22,6 +22,9 @@
           <a class="nav-link" href="?page=about">关于</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="?page=update">升级</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="?mode=api&a=main&m=logout">注销</a>
         </li>
       </ul>

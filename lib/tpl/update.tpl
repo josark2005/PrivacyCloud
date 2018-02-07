@@ -69,6 +69,8 @@
   </head>
   <body>
 
+    {_nav_}
+
     <div class="container mt-4" id="container">
 
       <div class="row">

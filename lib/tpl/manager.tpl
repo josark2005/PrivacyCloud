@@ -52,9 +52,10 @@
             }
           },
           success: function(data){
-            console.log(data);
             if( data.code === "0"){
-              window.open(data.data);
+              console.log(data);
+              $("a#downloader").attr("href", data.data);
+              document.getElementById("downloader").click();
             }else{
               alert(data.msg_zh+" "+data.code);
             }
@@ -80,6 +81,7 @@
               <span class="font-weight-bold">资源管理</span> <small class="badge badge-light">位置：<span id="prefix"><a href="?page=manager">根目录</a></span></small>
             </div>
             <div class="card-body table-responsive">
+              <a id="downloader" class="d-none" href="javascript:;" target="_blank"></a>
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
