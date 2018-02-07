@@ -128,7 +128,7 @@ class main {
     $ver = file_get_contents($path);
     $ver = htmlspecialchars_decode($ver);
     $ver = json_decode($ver, true); // 解析为数组
-    $ver = $ver[VERSION]['version'];
+    $ver = isset($ver[VERSION]['version']) ? $ver[VERSION]['version'] : C("VERSION");
     echo json_encode($ver);
   }
 }

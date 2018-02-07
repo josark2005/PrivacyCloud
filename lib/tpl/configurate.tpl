@@ -12,9 +12,6 @@
     <script type="text/javascript">
     var sp = "__SP__".toUpperCase();
     var flux = "__FLUX__" + "MB";
-    var danger_code = "___DANGER__";
-    var danger_msg = "___DANGER_MSG__";
-    var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
     $(function(){
       document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
       document.getElementById("flux").innerHTML = flux;

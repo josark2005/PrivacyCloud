@@ -9,11 +9,6 @@
     <script src="./lib/tpl/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script type="text/javascript">
-      var version = "__VERSION__";
-      var lastest_version = "__VERSION__";
-      var danger_code = "___DANGER__";
-      var danger_msg = "___DANGER_MSG__";
-      var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
       function getLastestVer(){
         var ajax = $.ajax({
           url: "?mode=api&a=main&m=getLastestVer",
@@ -29,7 +24,7 @@
           success: function(data){
             lastest_version = data;
             $("#lastest_version").text(lastest_version);
-            if( version !== lastest_version ){
+            if( "__version__" !== lastest_version ){
               $("button#update").removeClass("d-none")
               $("button#glv").addClass("d-none");
             }

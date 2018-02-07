@@ -6,21 +6,24 @@
     <title>Privacy Cloud - 个人云存储</title>
     <link rel="shortcut icon" href="./lib/tpl/img/logo_pc.png">
     <link rel="stylesheet" href="./lib/tpl/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/tpl/css/fontawesome-all.min.css">
     <script src="./lib/tpl/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/plupload.full.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/qiniu.min.js" charset="utf-8"></script>
+    {_common_var_}
     <script src="./lib/tpl/js/main.js?ver=__VERSION__" charset="utf-8"></script>
     <script type="text/javascript">
-      var sp = "__SP__".toUpperCase();
-      var flux = "__FLUX__" + "MB";
-      var update_basic_url = "__update_basic_url__";
-      var danger_code = "___DANGER__";
-      var danger_msg = "___DANGER_MSG__";
-      var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
+      var prefix = __BKTRS_PREFIX__;
       $(function(){
-        document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
-        document.getElementById("flux").innerHTML = flux;
+        // 解析面包导航
+        var t_pf = ""; // 前缀记忆
+        $.each(prefix, function(key, value){
+          t_pf += value+"/";
+          console.log(value);
+          console.log(t_pf);
+          $("#prefix").append("/<a href=\"?page=manager&prefix="+t_pf+"\">"+value+"</a>");
+        });
       });
       function del(key,hash){
         $.ajax({
@@ -58,6 +61,9 @@
           }
         });
       }
+      function enter(prefix){
+        location.href="?page=manager&prefix="+prefix;
+      }
     </script>
   </head>
   <body>
@@ -71,13 +77,13 @@
         <div class="col-md-12 col-sm-12">
           <div class="card">
             <div class="card-header bg-dark text-white">
-              <span class="font-weight-bold">资源管理</span>
+              <span class="font-weight-bold">资源管理</span> <small class="badge badge-light">位置：<span id="prefix"><a href="?page=manager">根目录</a></span></small>
             </div>
             <div class="card-body table-responsive">
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">文件</th>
+                    <th scope="col">名称</th>
                     <th scope="col" style="min-width:105px;">大小</th>
                     <th scope="col" style="min-width:105px;">操作</th>
                   </tr>
@@ -86,6 +92,9 @@
                   ==list==
                 </tbody>
               </table>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">*[删除文件夹]：删除文件夹中的所有内容文件夹会自动清除。</small>
             </div>
           </div>
         </div>

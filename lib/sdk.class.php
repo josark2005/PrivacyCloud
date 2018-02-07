@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * SDK管理模块
- * @version 1.0.0
+ * @version 1.0.1
  * @author Jokin
 **/
 class sdk {
@@ -107,12 +107,10 @@ class sdk {
    * @param  void
    * @return mixed
   **/
-  public static function getFiles(){
+  public static function getFiles($prefix="", $marker=""){
     $auth = new \Qiniu\Auth(C("AK"), C("SK"));
     $bucketManager = new \Qiniu\Storage\BucketManager($auth);
-    $prefix = '';
-    $marker = '';
-    $limit = 200;
+    $limit = 1000;
     $delimiter = '/';
 
     // 列举文件
@@ -120,7 +118,7 @@ class sdk {
     if ($err !== null) {
         return false;
     } else {
-        return $ret['items'];
+        return $ret;
     }
   }
 
@@ -164,7 +162,7 @@ class sdk {
    * @return mixed
   **/
   public static function getDownloadUrl($url){
-    $auth = new \Qiniu\Auth($ak, $sk);
+    $auth = new \Qiniu\Auth(C("AK"), C("SK"));
     $signedUrl = $auth->privateDownloadUrl($url);
     return $signedUrl;
   }

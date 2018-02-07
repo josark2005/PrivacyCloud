@@ -12,7 +12,7 @@ class initialize {
     // 注册行为
     if( C("MODE") === router::MODE_API ){
       // api
-      define("A", isset($_GET['a'])?$_GET['a']:C("SP"));
+      define("A", isset($_GET['a'])?$_GET['a']:mb_strtolower(C("SP")));
       define("M", isset($_GET['m'])?$_GET['m']:false);
     }else{
       define("P", isset($_GET['page'])?$_GET['page']:"index");
