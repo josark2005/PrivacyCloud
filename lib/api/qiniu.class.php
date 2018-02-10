@@ -14,7 +14,7 @@ class qiniu {
     echo json_encode($err);
   }
   public function del(){
-    if( isset($_GET['key']) && !empty($_GET['key']) ){
+    if( isset($_GET['key']) ){
       $res = PrivacyCloud\sdk::delFile($_GET['key']);
       if($res){
         $err['code'] = "JPCAE02";

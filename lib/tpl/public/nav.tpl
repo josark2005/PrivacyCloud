@@ -10,22 +10,24 @@
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="?page=upload">上传</a>
+          <a class="nav-link" href="?page=upload"><i class="fas fa-fw fa-cloud-upload-alt"></i> 上传</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?page=manager">管理</a>
+          <a class="nav-link" href="?page=manager"><i class="fas fa-fw fa-cloud"></i> 管理</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?page=configurate">配置</a>
+          <a class="nav-link" href="?mode=api&a=main&m=logout"><i class="fas fa-fw fa-sign-out-alt"></i> 注销</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="?page=about">关于</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="?page=update">升级</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="?mode=api&a=main&m=logout">注销</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-ellipsis-h"></i> 其他
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="?page=configurate"><i class="fas fa-fw fa-cogs"></i> 配置</a>
+            <a class="dropdown-item" href="?page=update"><i class="fas fa-fw fa-upload"></i> 升级</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="?page=about"><i class="fas fa-fw fa-info-circle"></i> 关于</a>
+          </div>
         </li>
       </ul>
       <span class="navbar-text text-white">

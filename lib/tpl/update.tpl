@@ -6,6 +6,8 @@
     <title>Privacy Cloud - 个人云存储</title>
     <link rel="shortcut icon" href="./lib/tpl/img/logo_pc.png">
     <link rel="stylesheet" href="./lib/tpl/css/bootstrap.min.css">
+    <!-- Special Page -->
+    <link rel="stylesheet" href="./lib/tpl/css/fontawesome-all.min.css">
     <script src="./lib/tpl/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     <script type="text/javascript">

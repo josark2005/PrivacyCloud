@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="./lib/tpl/css/fontawesome-all.min.css">
 <script type="text/javascript">
   var sp = "__SP__".toUpperCase();
   var flux = "__FLUX__" + "MB";
