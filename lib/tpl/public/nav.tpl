@@ -10,10 +10,10 @@
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="?page=upload"><i class="fas fa-fw fa-cloud-upload-alt"></i> 上传</a>
+          <a class="nav-link" href="?page=manager"><i class="fas fa-fw fa-cloud"></i> 管理</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?page=manager"><i class="fas fa-fw fa-cloud"></i> 管理</a>
+          <a class="nav-link" href="?page=upload"><i class="fas fa-fw fa-cloud-upload-alt"></i> 上传</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="?mode=api&a=main&m=logout"><i class="fas fa-fw fa-sign-out-alt"></i> 注销</a>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./lib/tpl/css/fontawesome-all.min.css">
     <script src="./lib/tpl/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
+    {_common_var_}
     <script type="text/javascript">
       function getLastestVer(){
         var ajax = $.ajax({

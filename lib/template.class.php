@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * Template Processor
- * @version 1.2.1
+ * @version 1.2.2
  * @author Jokin
 **/
 class template {
@@ -23,8 +23,8 @@ class template {
     $page = self::$page = P;  // 初始页面在初始化类中设置
     // 默认跳转页
     if( !is_file("./lib/tpl/{$page}.tpl") ){
-      $page = "upload";  // 页面不存在自动跳转到首页
-      self::$page = "upload";
+      $page = "manager";  // 页面不存在自动跳转到首页
+      self::$page = "manager";
     }
     $page = file_get_contents("./lib/tpl/{$page}.tpl");
 
