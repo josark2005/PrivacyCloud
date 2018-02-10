@@ -9,13 +9,13 @@
 namespace PrivacyCloud;
 /**
  * Template Processor
- * @version 1.2.0
+ * @version 1.2.1
  * @author Jokin
 **/
 class template {
   public static $public_page = array("login");
 
-  public static $page = "upload";
+  public static $page = "manager";
 
   public static function run(){
     // 授权管理
@@ -75,8 +75,9 @@ class template {
             $file['name'] = mb_substr($file['key'], mb_strlen($prefix), mb_strlen($file['key']) - mb_strlen($prefix) );
             $_temp = $_c;
             $_handle = "<a class=\"text-primary\" href=\"javascript:;\" onclick=\"downloader('http://".C("DM")."/".$file['key']."');\">下载</a> | <a class=\"text-danger\" href=\"javascript:;\" onclick=\"javascript:del('{$file['key']}','{$file['hash']}');\">删除</a>";
+            $_size = round($file['fsize']/1024/1024, 2) === (float)0 ? round($file['fsize']/1024, 2)." K" :round($file['fsize']/1024/1024, 2)." M";
             $_temp = str_replace("~~#1!", $file['name'], $_temp);
-            $_temp = str_replace("~~#2!", round($file['fsize']/1024/1024, 2)." M", $_temp);
+            $_temp = str_replace("~~#2!", $_size, $_temp);
             $_temp = str_replace("~~#3!", $file['hash'], $_temp);
             $_temp .= $_handle."</td></tr>";
             $_content .= $_temp;
