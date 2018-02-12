@@ -2,7 +2,7 @@
 
 ### 2018.2.4
 
-自`Version 1.3.2`版本起至`Version 1.4.2`（不含）所有版本的`默认更新地址`失效，更改为`http://pc.twocola.com/`或`http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/docs/`即可。
+自`Version 1.3.2`版本起至`Version 1.4.1`所有版本的`默认更新地址`失效，更改为`http://pc.twocola.com/`或`http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/docs/`即可。
 
 [修改方法](../update.md)
 
