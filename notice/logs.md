@@ -1,5 +1,9 @@
 # 杂项公告
 
+### 2018.2.12
+
+`Version 1.4.13`版本升级模块出现错误，无法进行自动更新，下载最新版本替换即可。
+
 ### 2018.2.4
 
 自`Version 1.3.2`版本起至`Version 1.4.1`所有版本的`默认更新地址`失效，更改为`http://pc.twocola.com/`或`http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/docs/`即可。
