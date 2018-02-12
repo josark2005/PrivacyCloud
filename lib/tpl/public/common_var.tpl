@@ -12,6 +12,8 @@
     // get lastest version
     $.ajax({
       url: "?mode=api&a=main&m=getLastestVer",
+      dataType: "json",
+      timeout: 10000,
       complete: function(xml, status){
         console.log(status);
       },
@@ -19,14 +21,7 @@
         // current version
         var current_version = $("#current_version").text();
         console.log(current_version);
-        // lastest version
-        // data = jQuery.parseJSON(data);
-        // console.log();
-        if( typeof(data[current_version]) === "undefined" ){
-          $("#auto_lastest_version").text("获取失败[F-1]");
-          return ;
-        }
-        var lastest_version = data[current_version].version;
+        var lastest_version = data;
         $("#auto_lastest_version").text(lastest_version);
         // version compare
         if( current_version != lastest_version){
