@@ -53,8 +53,8 @@
           success: function(data){
             if( data.code === "0"){
               console.log(data);
-              $("a#downloader").attr("href", data.data);
-              document.getElementById("downloader").click();
+              $("#download_href").attr("href", data.data);
+              $("#downloader").modal("show");
             }else{
               alert(data.msg_zh+" "+data.code);
             }
@@ -200,7 +200,6 @@
               <span class="font-weight-bold">资源管理</span> <small class="badge badge-light">位置：<span id="prefix"><a href="?page=manager">根目录</a></span></small>
             </div>
             <div class="card-body table-responsive">
-              <a id="downloader" class="d-none" href="javascript:;" target="_blank"></a>
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -245,6 +244,25 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
             <button type="button" class="btn btn-primary" onclick="newFloder();">创建并进入</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="downloader">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">下载页</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <a id="download_href" href="javascript:;" target="_blank" class="btn btn-primary btn-block">下载</a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
