@@ -178,6 +178,22 @@
 
       <div class="row">
 
+        <div class="col-md-4 col-sm-12">
+          <div class="card">
+            <div class="card-header bg-dark text-white">
+              <span class="font-weight-bold">数据上传</span>
+            </div>
+            <div class="card-body" id="upload">
+              <button class="btn btn-primary btn-block my-4" id="pickfiles">选择文件或拖动到这里上传</button>
+              <button class="btn btn-success btn-block my-4" data-toggle="modal" data-target="#newFloder">新建文件夹</button>
+              <ul class="list-group" id="upload_list"></ul>
+            </div>
+            <div class="card-footer text-muted">
+              <small id="progress_info" class="text-truncate">上传至当前目录</small>
+            </div>
+          </div>
+        </div>
+
         <div class="col-md-8 col-sm-12">
           <div class="card">
             <div class="card-header bg-dark text-white">
@@ -200,22 +216,6 @@
             </div>
             <div class="card-footer">
               <small class="text-muted">*[删除文件夹]：删除文件夹中的所有内容文件夹会自动清除。</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 col-sm-12">
-          <div class="card">
-            <div class="card-header bg-dark text-white">
-              <span class="font-weight-bold">数据上传</span>
-            </div>
-            <div class="card-body" id="upload">
-              <button class="btn btn-primary btn-block my-4" id="pickfiles">选择文件或拖动到这里上传</button>
-              <button class="btn btn-success btn-block my-4" data-toggle="modal" data-target="#newFloder">新建文件夹</button>
-              <ul class="list-group" id="upload_list"></ul>
-            </div>
-            <div class="card-footer text-muted">
-              <small id="progress_info" class="text-truncate">上传至当前目录</small>
             </div>
           </div>
         </div>
