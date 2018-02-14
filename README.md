@@ -28,11 +28,17 @@
 ## 实例界面展示 *ver. 1.4.14*
 
 **登录授权页**
+<<<<<<< HEAD
 
 ![登录授权页](http://pc.twocola.com/resources/images/1.4.14_login.png)
 
 **UI界面**
 
+=======
+![登录授权页](http://pc.twocola.com/resources/images/1.4.14_login.png)
+
+**UI界面**
+>>>>>>> a3206046175555e5d46214e7e38631d4e73cc7b8
 ![UI界面](http://pc.twocola.com/resources/images/1.4.14_UI.jpg)
 
 ---
