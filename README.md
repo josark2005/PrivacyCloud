@@ -18,6 +18,20 @@
 ## 相关信息 *Relevant Information*
 
 - 官网 [Privacy Cloud](http://pc.twocola.com)
+- GitHub [托管地址](http://github.com/jokin1999/PrivacyCloud)
+- Coding [托管地址](https://coding.net/u/Jokin/p/PrivacyCloud/git)
+
+*优先更新GitHub，Coding会及时进行同步，若时间差较大请见谅。*
+
+---
+
+## 实例界面展示 *ver. 1.4.14*
+
+**登录授权页**
+![登录授权页](http://pc.twocola.com/resources/images/1.4.14_login.png)
+
+**UI界面**
+![UI界面](http://pc.twocola.com/resources/images/1.4.14_UI.jpg)
 
 ---
 
