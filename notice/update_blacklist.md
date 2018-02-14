@@ -1,4 +1,4 @@
-# 撤销更新地址公告
+## 撤销更新地址公告
 
 ### 2018.2.4
 - 地址：`http://raw.githubusercontent.com/jokin1999/PrivacyCloud/master/docs/`

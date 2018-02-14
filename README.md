@@ -1,1 +1,1 @@
-[Twocola Studio]
+These are the documents of Privacy Cloud.

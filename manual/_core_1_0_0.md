@@ -1,3 +1,5 @@
+> 该手册仅适用于1.3.1及以下版本，强烈建议使用最新版本！
+
 # 设置方法
 
 - [下载](https://github.com/jokin1999/PrivacyCloud/releases)源码
