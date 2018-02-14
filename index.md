@@ -5,6 +5,14 @@
 
 ---
 
+## 实例界面展示 *ver. 1.4.14*
+
+![登录授权页](./resources/images/1.4.14_login.png)
+
+![UI界面](./resources/images/1.4.14_UI.jpg)
+
+---
+
 ## 相关文件 *Relevant File*
 
 - **使用手册** [查看](./manual/start.md)
