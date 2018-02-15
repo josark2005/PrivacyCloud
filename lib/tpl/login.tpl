@@ -54,9 +54,9 @@
       }
     </script>
   </head>
-  <body class="bg-dark">
+  <body class="bg-danger">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger" id="navbar">
       <div class="container">
         <a class="navbar-brand" href="javascript:;">
           <img src="./lib/tpl/img/logo_pc.png" width="30" height="30" alt="logo">
@@ -69,14 +69,14 @@
     </nav>
 
     <div class="container mt-4" id="container">
-      <div class="row" style="position:relative;top:50%;transform:translateY(-70%);">
+      <div class="row" style="position:relative;top:50%;transform:translateY(-60%);">
 
         <div class="col-md-6 col-sm-12 mx-auto">
           <div class="card">
-            <div class="card-header bg-primary text-white">登录 / Login</div>
+            <div class="card-header bg-danger text-white">登录 / Login</div>
             <div class="card-body">
 
-              <div class="alert alert-primary">欢迎使用Privacy Cloud！</div>
+              <div class="alert alert-danger">欢迎使用Privacy Cloud！</div>
 
               <div class="input-group mb-3">
                 <input type="password" id="pw" class="form-control" placeholder="授权密码 Authorization Password" autofocus="autofocus" />
@@ -87,7 +87,7 @@
 
             </div>
             <div class="card-footer text-muted">
-              <small>当前版本：__VERSION__</small><br />
+              <small>当前版本：__VERSION__（狗年特别版）</small><br />
               <small>Powered by Jokin.</small><br />
               <hr />
               <small>
