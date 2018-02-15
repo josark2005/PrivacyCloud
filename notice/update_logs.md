@@ -5,6 +5,7 @@
 
 ### Version 1.4.14
 - `修复`下载模块获取版本信息错误
+- `发布`狗年特别版 [下载](https://github.com/jokin1999/PrivacyCloud/releases/download/1.4.14/Year_of_the_Dog_special_version-1.4.14.zip)
 
 ### Version 1.4.13`[S]`
 - `优化`下载流程

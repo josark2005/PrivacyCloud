@@ -11,3 +11,9 @@
 ## 相关文档 *Relevant Docs*
 
 - **更新日志** [查看](../notice/update_logs.md)
+
+## 特别版本
+
+- 2018 [发布页](./specialVersion/2018/index.md)
+
+*特别版本不支持通过升级获得，但特别版本可以升级至普通版本*
