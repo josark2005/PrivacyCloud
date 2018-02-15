@@ -1,13 +1,13 @@
-## 高级更新
+# 高级更新
 
-### 官方更新地址
+## 官方更新地址
 
 > 推荐使用短地址，更稳定、安全、长效。
 
 - `http://pc.twocola.com/`
 - `http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/`
 
-### 第三方更新地址
+## 第三方更新地址
 
 - 请查询[更新地址一览](../release/update_verified.md)(json)
   > 一览中的地址都是经过官方认证的，但非官方地址仍然不作安全性与可用性承诺。
@@ -32,7 +32,7 @@
 
   撤销情况将公布在[撤销公告](../notice/update_blacklist.md)
 
-### 相关F&Q
+## 相关F&Q
 
 **如何设置**
 > 打开根目录中的`config.inc.php`文件，若不存在则不支持修改。
