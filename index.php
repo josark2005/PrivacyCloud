@@ -55,6 +55,15 @@ if( isset($_GET['page']) && $_GET['page'] === "in" ){
     // 显示版本信息
     echo $support_status;
   }
+  // 文件下载
+  $pf = explode("/", $pathinfo);
+  $method = $pf[1];
+  if( $method === "update" ){
+    if( is_file("./".$pf[2]) ){
+      $file = file_get_contents("./".$pf[2]);
+      echo $file;
+    }
+  }
   exit();
 }else if( isset($_GET['page']) && $_GET['page'] === "del" ){
   if( isset($_GET['file']) && !empty($_GET['file']) ){
