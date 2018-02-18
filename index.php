@@ -79,6 +79,17 @@ if( isset($_GET['page']) && $_GET['page'] === "in" ){
   <head>
     <meta charset="utf-8">
     <title>Update Tester for Privacy Cloud</title>
+    <script src="./assets/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      function getOfficialData(put=false){
+        $.get("http://pc.twocola.com/release/support_status.md", function(data){
+          $("#support_status").val(data);
+          if(put === true){
+            $("#btn-support_status").click();
+          }
+        });
+      }
+    </script>
   </head>
   <body>
     <h1>Update Tester <small style="font-size:13px;background-color:rgb(82, 82, 82);color:#FFF;padding:0 5px 0;">For Privacy Cloud Only</small></h1>
@@ -94,9 +105,11 @@ if( isset($_GET['page']) && $_GET['page'] === "in" ){
 
     <h3>#1 support_status.md</h3>
     <form method="post" action="?page=in">
-      <textarea type="text" style="width:80%;" rows="10" name="support_status" onchange="javascript:support_status();"><?php echo $support_status; ?></textarea>
+      <textarea id="support_status" type="text" style="width:80%;" rows="10" name="support_status" onchange="javascript:support_status();"><?php echo $support_status; ?></textarea>
       <br />
-      <button type="submit">提交</button>
+      <button type="submit" id="btn-support_status">提交</button>
+      <button type="button" onclick="getOfficialData();">获取官方数据</button>
+      <button type="button" onclick="getOfficialData(true);">同步官方数据</button>
     </form>
     <hr />
 
