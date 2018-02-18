@@ -5,6 +5,12 @@
 
 `[UP-N]` 升级包无此功能
 
+## Version 1.4.15
+- `新增`升级页非官方升级地址警告
+- `优化`支持无限文件数量列出
+- `优化`无需手动填写`BKT`
+- `优化`设置页自动获取智能取消
+
 ## Version 1.4.14
 - `修复`下载模块获取版本信息错误
 - `发布`狗年特别版 [下载](https://github.com/jokin1999/PrivacyCloud/releases/download/1.4.14/Year_of_the_Dog_special_version-1.4.14.zip)
