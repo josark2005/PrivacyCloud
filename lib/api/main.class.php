@@ -125,7 +125,7 @@ class main {
 
   public function getLastestVer(){
     $path = C("update_basic_url")."release/support_status.md";
-    $ver = file_get_contents($path);
+    $ver = @file_get_contents($path);
     $ver = htmlspecialchars_decode($ver);
     $ver = json_decode($ver, true); // 解析为数组
     $ver = isset($ver[VERSION]['version']) ? $ver[VERSION]['version'] : C("VERSION");

@@ -74,5 +74,49 @@ class safety {
       echo json_encode($err);
     }
   }
+
+  public function chgUpd(){
+    $domains = @file_get_contents("http://pc.twocola.com/release/update_verified.md");
+    $domains = htmlspecialchars_decode($domains);
+    $domains = json_decode($domains, true); // 解析为数组
+    $domain = $domains[0];
+    include "./config.inc.php";
+    $config["UPDATE_BASIC_URL"] = $domain;
+    $linefeed = PHP_EOL;
+    $content = "<?php{$linefeed}\$config=".var_export($config,true).";";
+    $res = file_put_contents("./config.inc.php", $content);
+    if( $res ){
+      $err['code'] = "0";
+      $err['msg'] = "success";
+      $err['msg_zh'] = "设置成功";
+      exit(json_encode($err));
+    }else{
+      $err['code'] = "JPCAD04";
+      $err['msg'] = "failed to write confinguration file";
+      $err['msg_zh'] = "设置文件无法写入，请删除配置页->升级地址中的数据";
+      exit(json_encode($err));
+    }
+  }
+
+  public function toggleDebug(){
+    include "./config.inc.php";
+    if( isset($config["DEBUG"]) ){
+      unset($config["DEBUG"]);
+    }
+    $linefeed = PHP_EOL;
+    $content = "<?php{$linefeed}\$config=".var_export($config,true).";";
+    $res = file_put_contents("./config.inc.php", $content);
+    if( $res ){
+      $err['code'] = "0";
+      $err['msg'] = "success";
+      $err['msg_zh'] = "设置成功";
+      exit(json_encode($err));
+    }else{
+      $err['code'] = "JPCAD04";
+      $err['msg'] = "failed to write confinguration file";
+      $err['msg_zh'] = "设置文件无法写入";
+      exit(json_encode($err));
+    }
+  }
 }
 ?>

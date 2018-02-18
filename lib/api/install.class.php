@@ -8,10 +8,32 @@
 // +----------------------------------------------------------------------
 /**
  * Main API
- * @version  1.0.0
+ * @version  1.1.0
  * @author Jokin
 **/
 class install {
+  public function getBkt(){
+    if( isset($_POST['ak'], $_POST['sk'], $_POST['sp']) ){
+      $bkt = PrivacyCloud\sdk::getBkt($_POST['ak'], $_POST['sk']);
+      if( !$bkt ){
+        $err['code'] = "JPCAE03";
+        $err['msg'] = "failed to get Bucket";
+        $err['msg_zh'] = "获取Bucket失败";
+        exit(json_encode($err));
+      }else{
+        $err['code'] = "0";
+        $err['msg'] = "success";
+        $err['msg_zh'] = "成功获取";
+        $err['data'] = $bkt;
+        exit(json_encode($err));
+      }
+    }else{
+      $err['code'] = "JPCAE01";
+      $err['msg'] = "bad infomation";
+      $err['msg_zh'] = "提交的数据不合法";
+      exit(json_encode($err));
+    }
+  }
   public function getDomain(){
     if( isset($_POST['ak'], $_POST['sk'], $_POST['bkt'], $_POST['sp']) ){
       $domain = PrivacyCloud\sdk::getDoamin($_POST['ak'], $_POST['sk'], $_POST['bkt']);

@@ -12,12 +12,52 @@
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
     {_common_var_}
     <script type="text/javascript">
+      $(function(){
+        // 认证地址检测
+        var status = 0;
+        var finish = 0;
+        $.getJSON("http://pc.twocola.com/release/update_verified.md", function(data){
+          finish ++;
+          $.each(data, function(key, value){
+            if( value === $("#updUrl").text() ){
+              $("#update_verified").removeClass("d-none");
+              status ++;
+              return false; // jump out
+            }
+          });
+        });
+        // 调试地址检测
+        $.getJSON("http://pc.twocola.com/release/update_debug.md", function(data){
+          finish ++
+          $.each(data, function(key, value){
+            if( value === $("#updUrl").text() ){
+              $("#update_debug").removeClass("d-none");
+              status ++;
+              return false; // jump out
+            }
+          });
+        });
+        var t = setInterval(function(){
+          if( finish === 2 ){
+            clearInterval(t);
+            if( status === 0 ){
+              $("#update_unknown").removeClass("d-none");
+              $("#urlSafer").removeClass("d-none");
+            }
+          }
+        }, 1000);
+      });
       function getLastestVer(){
+        var btn_glv = $("#glv").text();
+        $("#glv").attr("disabled", "disabled");
+        $("#glv").text("请稍候。。。");
         var ajax = $.ajax({
           url: "?mode=api&a=main&m=getLastestVer",
           dataType: "json",
           timeout: 10000,
           complete: function(Http, status){
+            $("#glv").text(btn_glv);
+            $("#glv").removeAttr("disabled");
             if( status === "timeout" ){
               ajax.abort();
               alert("连接服务器超时");
@@ -25,6 +65,8 @@
             }
           },
           success: function(data){
+            $("#glv").text(btn_glv);
+            $("#glv").removeAttr("disabled");
             lastest_version = data;
             $("#lastest_version").text(lastest_version);
             if( "__version__" !== lastest_version ){
@@ -34,7 +76,10 @@
           }
         });
       }
-      function update(){
+      function update(version=null){
+        if( version !== null ){
+          lastest_version = version;
+        }
         $("#update").addClass("d-none");
         $("#progress").removeClass("d-none");
         var progress = $("#prog");
@@ -68,6 +113,10 @@
       function complete(){
         location.href="?page=index";
       }
+      function urlSafer(){
+        $.get("?mode=api&a=safety&m=chgUpd");
+        location.href = "";
+      }
     </script>
   </head>
   <body>
@@ -84,7 +133,12 @@
               <span class="font-weight-bold">Privacy Cloud 版本管理中心</span>
             </div>
             <div class="card-body table-responsive">
-              <p>当前版本：__VERSION__<br />可更新版本：<span id="lastest_version">等待检查</spn></p>
+              <div class="alert alert-info"><strong>提醒！</strong>推荐使用带有<strong>认证地址</strong>绿色标识的更新地址！（调试地址与非认证地址同样存在安全风险，请获悉！）</div>
+              <p>
+                升级服务提供：<span id="update_verified" class="d-none badge badge-success">认证地址</span><span id="update_debug" class="d-none badge badge-warning">调试地址</span><span id="update_unknown" class="d-none badge badge-danger">[R-4]未知地址</span><span id="updUrl">__UPDATE_BASIC_URL__</span> <a id="urlSafer" class="d-none text-sm text-danger" href="javascript:;" onclick="javascript:urlSafer();">修改为官方地址</a><br />
+                当前版本：__VERSION__<br />
+                可更新版本：<span id="lastest_version">等待检查</span>
+              </p>
               <button type="button" class="btn btn-outline-danger" id="glv" onclick="getLastestVer();">检查新版本</button>
               <button type="button" class="btn btn-outline-success d-none" id="update" onclick="update();">立即更新</button>
               <button type="button" class="btn btn-outline-success d-none" id="complete" onclick="complete();">完成</button>

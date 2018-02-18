@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * SDK管理模块
- * @version 1.0.1
+ * @version 1.1.0
  * @author Jokin
 **/
 class sdk {
@@ -110,16 +110,32 @@ class sdk {
   public static function getFiles($prefix="", $marker=""){
     $auth = new \Qiniu\Auth(C("AK"), C("SK"));
     $bucketManager = new \Qiniu\Storage\BucketManager($auth);
-    $limit = 1000;
+    $limit = 200;
     $delimiter = '/';
-
     // 列举文件
-    list($ret, $err) = $bucketManager->listFiles(C("BKT"), $prefix, $marker, $limit, $delimiter);
-    if ($err !== null) {
-        return false;
-    } else {
-        return $ret;
-    }
+    $res = null;
+    do {
+        list($ret, $err) = $bucketManager->listFiles(C("BKT"), $prefix, $marker, $limit, $delimiter);
+        if ($err !== null) {
+            return false;
+        } else {
+            $marker = null;
+            if (array_key_exists('marker', $ret)) {
+                $marker = $ret['marker'];
+            }
+            if( array_key_exists('items', $ret) ){
+              foreach ($ret['items'] as $value) {
+                $res['items'][] = $value;
+              }
+            }
+            if( array_key_exists('commonPrefixes', $ret) ){
+              foreach ($ret['commonPrefixes'] as $value) {
+                $res['commonPrefixes'][] = $value;
+              }
+            }
+        }
+    } while (!empty($marker));
+    return $res;
   }
 
   /**
@@ -151,6 +167,24 @@ class sdk {
         return $err;
     } else {
         return $domains;
+    }
+  }
+
+  /**
+   * getBkt
+   * @param  string ak
+   * @param  string sk
+   * @return mixed
+  **/
+  public static function getBkt($ak, $sk){
+    $auth = new \Qiniu\Auth($ak, $sk);
+    $config = new \Qiniu\Config();
+    $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
+    list($buckets, $err) = $bucketManager->buckets(true);
+    if ($err) {
+        return false;
+    } else {
+        return $buckets;
     }
   }
 

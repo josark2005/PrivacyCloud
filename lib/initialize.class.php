@@ -23,6 +23,13 @@ class initialize {
     }
     C("FLUX", "-1", true);
     // 安全检测
+    // 调试模式检测
+    if( C("DEBUG") === true ){
+      C("_DANGER", "R-5");
+      C("_DANGER_MSG", "调试模式处于开启状态");
+      C("_DANGER_API_FILE", "safety");
+      C("_DANGER_API_METHOD", "toggleDebug");
+    }
     // 1.3.1-1.3.2遗留问题
     if( is_file("./index.php.bak") ){
       C("_DANGER", "R-1");

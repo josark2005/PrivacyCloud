@@ -17,8 +17,12 @@
       document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
       document.getElementById("flux").innerHTML = flux;
       // active fix
-      $("option[value="+sp+"]").attr("selected", "selected");
+      if( sp !== "" ){
+        $("option[value="+sp+"]").attr("selected", "selected");
+      }
     });
+    // Ajax配置
+    var ajax = null;
     function accept_a(){
       $("div#s0").addClass("d-none");
       $("div#s1").addClass("d-none");
@@ -29,7 +33,10 @@
       $("div#s1").removeClass("d-none");
       $("div#s2").addClass("d-none");
     }
-    function accept_b(){
+    function accept_c(){
+      if( ajax !== null ){
+        ajax.abort();
+      }
       var sp = $("#sp").val();
       var ak = $("#ak").val();
       var sk = $("#sk").val();
@@ -38,10 +45,10 @@
         alert("请完整填写相关信息");
         return ;
       }
-      $("div#s2").addClass("d-none");
-      $("div#s3").removeClass("d-none");
+      $("div#s3").addClass("d-none");
+      $("div#s4").removeClass("d-none");
       $("#domain_p").removeClass("d-none");
-      var ajax = $.ajax({
+      ajax = $.ajax({
         url: "?mode=api&install=true&a=install&m=getDomain",
         data: {"sp":sp, "ak":ak, "sk":sk, "bkt":bkt},
         type: "post",
@@ -59,9 +66,12 @@
           console.log(data);
           if( data.code === "0" ){
             $("#domain_p").addClass("d-none");
-            $("#dm").val(data.data[0]);
-            var qd = data.data.join(",");
-            $("#qd").val(qd);
+            console.log(data.data.length);
+            if( data.data.length !== 0 ){
+              $("#dm").val(data.data[0]);
+              var qd = data.data.join(",");
+              $("#qd").val(qd);
+            }
             return ;
           }else{
             $("#domain_p").addClass("d-none");
@@ -72,16 +82,77 @@
       });
     }
     function back2b(){
+      if( ajax !== null ){
+        ajax.abort();
+      }
       $("div#s2").removeClass("d-none");
       $("div#s3").addClass("d-none");
     }
-    function accept_c(){
-      $("div#s3").addClass("d-none");
-      $("div#s4").removeClass("d-none");
+    function accept_b(){
+      if( ajax !== null ){
+        ajax.abort();
+      }
+      // get Bkt
+      var sp = $("#sp").val();
+      var ak = $("#ak").val();
+      var sk = $("#sk").val();
+      if( sp === "null" || ak === "" || sk === "" ){
+        alert("请完整填写相关信息");
+        return ;
+      }
+      $("div#s2").addClass("d-none");
+      $("div#s3").removeClass("d-none");
+      $("#bkt_p").removeClass("d-none");
+      ajax = $.ajax({
+        url: "?mode=api&install=true&a=install&m=getBkt",
+        data: {"sp":sp, "ak":ak, "sk":sk},
+        type: "post",
+        dataType: "json",
+        timeout: 10000,
+        complete: function(Http, status){
+          if( status === "timeout" ){
+            ajax.abort();
+            alert("连接服务器超时");
+            back2b();
+            return ;
+          }
+        },
+        success: function(data){
+          console.log(data);
+          if( data.code === "0" ){
+            $("#bkt_p").addClass("d-none");
+            var content = "";
+            $.each(data.data, function(key, value){
+              content += "<option value=\""+value+"\">"+value+"</option>";
+            });
+            $("#bkt_a").append(content);
+            return ;
+          }else{
+            $("#bkt_p").addClass("d-none");
+            $("#_bkt_select").addClass("d-none");
+            alert("获取Bucket失败：" + data.msg + " [" + data.code +"]");
+            return ;
+          }
+        }
+      });
     }
     function back2c(){
+      if( ajax !== null ){
+        ajax.abort();
+      }
       $("div#s3").removeClass("d-none");
       $("div#s4").addClass("d-none");
+    }
+    function back2d(){
+      $("div#s4").removeClass("d-none");
+      $("div#s5").addClass("d-none");
+    }
+    function accept_d(){
+      if( ajax !== null ){
+        ajax.abort();
+      }
+      $("div#s4").addClass("d-none");
+      $("div#s5").removeClass("d-none");
     }
     function accept(){
       var sp = $("#sp").val();
@@ -90,13 +161,13 @@
       var bkt = $("#bkt").val();
       var dm = $("#dm").val();
       var qd = $("#qd").val();
-      var upd = $("#upd").val();
+      var upd = $("#upd").val()==="" ? $("#upd").attr("placeholder") : $("#upd").val();
       var auth_pw = $("#auth_pw").val();
       if( sp === "null" || ak === "" || sk === "" || bkt === "" || dm ==="" || qd === "" || upd === "" ){
         alert("信息不完整，请返回重新填写");
         return ;
       }
-      var ajax = $.ajax({
+      ajax = $.ajax({
         url: "?mode=api&install=true&a=install&m=setOptions",
         data: {"sp":sp, "ak":ak, "sk":sk, "bkt":bkt, "dm":dm, "qd":qd, "upd":upd, "auth_pw":auth_pw},
         type: "post",
@@ -173,7 +244,7 @@
               <span class="font-weight-bold">全局设置</span>
             </div>
             <div class="card-body table-responsive">
-
+              <!-- S1 -->
               <div class="" id="s1">
                 <h3 class="text-center">免责声明</h3>
                 <ol>
@@ -184,7 +255,7 @@
                 </ol>
                 <button type="button" class="btn btn-outline-danger btn-block" onclick="accept_a();">我已阅读上方免责声明并接受，继续设置</button>
               </div>
-
+              <!-- S2 -->
               <div class="d-none" id="s2" name="s2">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -211,7 +282,27 @@
                   <input type="text" class="form-control" id="sk" aria-describedby="_sk" placeholder="请输入Secret Key" value="__SK__">
                 </div>
 
-                <div class="input-group mb-3">
+                <hr />
+
+                <div class="clearfix">
+                  <button type="button" class="btn btn-outline-danger float-right" onclick="accept_b();">继续设置</button>
+                  <button type="button" class="btn btn-outline-secondary float-right mr-2" onclick="back2a();">上一步</button>
+                </div>
+              </div>
+              <!-- S3 -->
+              <div class="d-none" id="s3" name="s3">
+                <p class="text-center" id="bkt_p"><i class="fa-spin fab fa-cloudscale"></i> 获取BKT信息中，请稍候。。。</p>
+                <div class="alert alert-primary"><strong>提醒！</strong>如“自动获取”的Bucket中没有您想要填写的名称，直接在下方输入框中填写即可。</div>
+                <div class="input-group mb-3" id="_bkt_select">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="bkt_a">自动获取Bucket</label>
+                  </div>
+                  <select class="custom-select" id="bkt_a" onchange="$('#bkt').val(this.value==='null'?'':this.value);console.log(this.value);">
+                    <option value="null" selected>请选择Bucket</option>
+                  </select>
+                </div>
+
+                <div class="input-group mb-3" id="_bkt_manual">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_bkt">Bucket名称 BKT</span>
                   </div>
@@ -221,27 +312,27 @@
                 <hr />
 
                 <div class="clearfix">
-                  <button type="button" class="btn btn-outline-danger float-right" onclick="accept_b();">继续设置</button>
-                  <button type="button" class="btn btn-outline-secondary float-right mr-2" onclick="back2a();">上一步</button>
+                  <button type="button" class="btn btn-outline-danger float-right" onclick="accept_c();">继续设置</button>
+                  <button type="button" class="btn btn-outline-secondary float-right mr-2" onclick="back2b();">上一步</button>
                 </div>
               </div>
-
-              <div class="d-none" id="s3" name="s3">
+              <!-- S4 -->
+              <div class="d-none" id="s4" name="s4">
                 <p class="text-center" id="domain_p"><i class="fa-spin fab fa-cloudscale"></i> 获取BKT信息中，请稍候。。。</p>
 
                 <div class="alert alert-danger" role="alert">
-                  已为您自动填写最新的数据，如无需修改，请参照下方原信息修改。
+                  已为您自动填写最新的数据，如无需修改，请参照下方原信息<strong>重新填写</strong>。
                 </div>
 
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_dm">使用域名 DM</span>
                   </div>
-                  <input type="text" class="form-control" id="dm" aria-describedby="_dm" placeholder="请输入域名">
+                  <input type="text" class="form-control" id="dm" aria-describedby="_dm" placeholder="请输入域名" value="__DM__">
                 </div>
 
                 <div class="alert alert-primary" role="alert">
-                  DM原信息（不修改请复制下面的信息至上方输入框）：<br />
+                  DM原设置值（不修改请复制下面的信息至上方输入框）：<br />
                   __DM__
                 </div>
 
@@ -249,24 +340,23 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_qd">流量查询域名 QD</span>
                   </div>
-                  <input type="text" class="form-control" id="qd" aria-describedby="_qd" placeholder="请输入域名">
+                  <input type="text" class="form-control" id="qd" aria-describedby="_qd" placeholder="请输入域名" value="__QD__">
                 </div>
 
                 <div class="alert alert-primary" role="alert">
-                  QD原信息（不修改请复制下面的信息至上方输入框）：<br />
+                  QD原设置值（不修改请复制下方的信息至上方输入框）：<br />
                   __QD__
                 </div>
 
                 <hr />
 
                 <div class="clearfix">
-                  <button type="button" class="btn btn-outline-danger float-right" onclick="accept_c();">继续设置</button>
-                  <button type="button" class="btn btn-outline-secondary float-right mr-2" onclick="back2b();">上一步</button>
+                  <button type="button" class="btn btn-outline-danger float-right" onclick="accept_d();">继续设置</button>
+                  <button type="button" class="btn btn-outline-secondary float-right mr-2" onclick="back2c();">上一步</button>
                 </div>
               </div>
-
-              <div class="d-none" id="s4" name="s4">
-
+              <!-- S5 -->
+              <div class="d-none" id="s5" name="s5">
                 <div class="alert alert-primary" role="alert">
                   不知道如何设置此项？默认即可！
                 </div>
@@ -293,7 +383,7 @@
 
                 <div class="clearfix">
                   <button type="button" class="btn btn-outline-danger float-right" onclick="accept();">保存设置</button>
-                  <button type="button" class="btn btn-outline-secondary float-right mr-2" onclick="back2c();">上一步</button>
+                  <button type="button" class="btn btn-outline-secondary float-right mr-2" onclick="back2d();">上一步</button>
                 </div>
               </div>
 

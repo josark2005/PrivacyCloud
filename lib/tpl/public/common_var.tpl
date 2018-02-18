@@ -31,8 +31,29 @@
     });
     // 危险提示
     if( danger_code !== "" ){
-      var danger_alert = "<div class=\"alert alert-danger text-center\" role=\"alert\">" + "["+danger_code+"]" + danger_msg + " <a class=\"text-danger\" href=\"javascript:;\" onclick=\"safetyAssistant();\">删除文件</a></div>";
+      var danger_alert = "<div class=\"alert alert-danger text-center\" role=\"alert\">" + "["+danger_code+"]" + danger_msg + " <a class=\"text-danger\" href=\"javascript:;\" onclick=\"safetyAssistant();\">修复</a></div>";
       $("div#container").html(danger_alert + $("div#container").html());
     }
   });
+  function safetyAssistant(){
+    $.ajax({
+      url: danger_api,
+      dataType: "json",
+      timeout: 10000,
+      complete: function(XMLHttpRequest, status){
+        console.log(XMLHttpRequest);
+        if( status === "timeout" ){
+          alert("连接服务器超时，请稍候再试");
+        }
+      },
+      success: function(data){
+        console.log(data);
+        if( data.code === "0"){
+          location.href = "";
+        }else{
+          alert(data.msg_zh+" "+data.code);
+        }
+      }
+    });
+  }
 </script>
