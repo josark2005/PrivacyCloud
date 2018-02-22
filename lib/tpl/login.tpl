@@ -63,28 +63,26 @@
           Privacy Cloud
         </a>
         <span class="navbar-text">
-          授权页
+          NAS Online
         </span>
       </div>
     </nav>
 
     <div class="container mt-4" id="container">
-      <div class="row" style="position:relative;top:50%;transform:translateY(-60%);">
+      <div class="row">
 
         <div class="col-md-6 col-sm-12 mx-auto">
           <div class="card">
-            <div class="card-header bg-dark text-white">登录 / Login</div>
+            <div class="card-header bg-dark text-white"><i class="fas fa-sign-in-alt"></i> 登录 / Login</div>
             <div class="card-body">
-
               <div class="alert alert-primary">欢迎使用Privacy Cloud！</div>
-
               <div class="input-group mb-3">
-                <input type="password" id="pw" class="form-control" placeholder="授权密码 Authorization Password" autofocus="autofocus" />
-                <div class="input-group-append">
+                <input type="password" id="pw" tabindex="0" class="form-control" autofocus="autofocus" placeholder="授权密码 Authorization Password" />
+                <div class="input-group-sappend">
                   <button class="btn btn-outline-secondary" id="btn" type="button" onclick="javascript:login();">登录</button>
                 </div>
               </div>
-
+              <a class="text-muted small float-right" href="http://pc.twocola.com/manual/forgetAuthPW.html" target="_blank">忘记密码？</a>
             </div>
             <div class="card-footer text-muted">
               <small>当前版本：__VERSION__</small><br />
@@ -93,7 +91,9 @@
               <small>
                 <a class="text-muted" href="http://pc.twocola.com/" target="_blank">官方网站</a>
                 |
-                <a class="text-muted" href="http://github.com/Jokin1999/PrivacyCloud" target="_blank">项目源码</a>
+                <a class="text-muted fab fa-github" href="http://github.com/Jokin1999/PrivacyCloud" target="_blank"> GitHub</a>
+                |
+                <a class="text-muted" href="https://coding.net/u/Jokin/p/PrivacyCloud/git" target="_blank">Coding</a>
               </small>
             </div>
           </div>

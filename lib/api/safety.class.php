@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 /**
  * Safety API
- * @version  1.0.0
+ * @version  1.1.0
  * @author Jokin
 **/
 class safety {
@@ -57,6 +57,18 @@ class safety {
   public function delUpd(){
     if( is_file("./_update.zip") ){
       if( !unlink("./_update.zip") ){
+        $err['code'] = "JPCAD01";
+        $err['msg'] = "failed to delete the backup";
+        $err['msg_zh'] = "删除备份文件失败";
+        echo json_encode($err);
+      }else{
+        $err['code'] = "0";
+        $err['msg'] = "success";
+        $err['msg_zh'] = "删除成功！";
+        echo json_encode($err);
+      }
+    }else if( is_file("./_update.php") ){
+      if( !unlink("./_update.php") ){
         $err['code'] = "JPCAD01";
         $err['msg'] = "failed to delete the backup";
         $err['msg_zh'] = "删除备份文件失败";

@@ -8,4 +8,5 @@ $config=array (
   'QD' => false,
   "AUTH_PW" => '',
   'UPDATE_BASIC_URL' => 'http://pc.twocola.com/',
+  'SAFE_ENCRYPTION' => false
 );

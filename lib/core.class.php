@@ -9,7 +9,6 @@
 namespace PrivacyCloud;
 /**
  * Core
- * @version 2.0.0-beta.4
  * @author Jokin
 **/
 class Core {
@@ -24,8 +23,8 @@ class Core {
       die("您的环境不支持运行Privacy Cloud，要求PHP版本大于等于5.6.0");
     }
     // 版本信息
-    define("VERSION", "1.4.15");
-    define("CORE_VERSION", "2.0.0-beta.4");
+    define("VERSION", "1.5.0-alpha.1");
+    define("CORE_VERSION", "2.0.0");
     // 注册autoload方法
     spl_autoload_register("PrivacyCloud\Core::autoload");
     // 载入系统配置
@@ -57,11 +56,9 @@ class Core {
    * @param  class string
    * @return void
   */
-  static public function autoload($class){
+  public static function autoload($class){
     $root_path = "./";
-    // var_dump($class);
     $class_exploded = explode("\\", $class);
-    // var_dump($class_exploded);
     if( $class_exploded[0] == "PrivacyCloud" ){
       $root_path = "./lib/";
     }
@@ -69,7 +66,6 @@ class Core {
     if ( !is_file($path) ){
       return false;
     }
-    // var_dump($path);
     include $path;
   }
 
@@ -78,7 +74,7 @@ class Core {
    * @param  void
    * @return void
   **/
-  static public function verify($is_again = false){
+  public static function verify($is_again = false){
     // 检查配置文件
     if( !is_file("./config.inc.php") ){
       if( !is_file("./lib/assets/configuration/config.inc.php.tpl") ){
@@ -98,7 +94,7 @@ class Core {
    * @param  void
    * @return void
   **/
-  static public function exec_update(){
+  public static function exec_update(){
     if( is_file("./_update.php") ){
       include("./_update.php");
       unlink("./_update.php");

@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 /**
  * Router Core
- * @version 1.0.0
+ * @version 1.1.0
  * @author Jokin
 **/
 namespace PrivacyCloud;
@@ -21,7 +21,7 @@ class router {
    * @param  string path
    * @return mixed
   **/
-  static public function analyze($path){
+  public static function analyze($path){
     $analyzed = null; // initialize
     if( isset($path['mode']) && $path['mode'] === "api"){
       $analyzed['mode'] = self::MODE_API;
@@ -37,10 +37,10 @@ class router {
    * @param  string path
    * @return void
   **/
-  static public function redirect($path){
-    if( is_file("./lib/tpl/{$path}.tpl") ){
+  public static function redirect($path, $force = false){
+    if( is_file("./lib/tpl/{$path}.tpl") || $force === true ){
       header("Location: ?page={$path}");
-    }else{
+    }else if($force === false){
       die("[Router]您要访问的页面不存在，请检查程序是否完整！");
     }
   }

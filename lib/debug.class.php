@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 /**
  * Debug Controller
- * @version 1.0.1
+ * @version 1.0.2
  * @author Jokin
 **/
 namespace PrivacyCloud;
@@ -22,7 +22,7 @@ class debug {
 
   public static function header_json(){
     if( C("DEBUG") === false ){
-      header('Content-Type:text/json;charset=utf-8');
+      header('Content-Type:application/json;charset=utf-8');
     }
   }
 

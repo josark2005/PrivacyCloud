@@ -10,14 +10,15 @@
  * Read Configuration
  * @param  string name
  * @param  string value
- * @param  string is_write
+ * @param  boolean is_write
  * @return mixed
 **/
 function C($name, $value = "", $is_write = false){
+  $name = strtoupper($name);
   $conf = \PrivacyCloud\configuration::init();
   if( empty($value) && $value !== false && $is_write === false ){
     if(!$conf->exists($name)){
-      return ( defined(strtoupper($name)) ) ? constant( strtoupper($name) ) : false;
+      return ( defined($name) ) ? constant($name) : false;
     }else{
       return $conf->readConf($name);
     }

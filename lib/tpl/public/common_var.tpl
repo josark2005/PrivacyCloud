@@ -7,7 +7,7 @@
   var danger_msg = "___DANGER_MSG__";
   var danger_api = "?mode=api&a=___DANGER_API_FILE__&m=___DANGER_API_METHOD__";
   $(function(){
-    document.getElementById("SP").innerHTML = (sp === "") ? "缺失" : sp;
+    document.getElementById("SP").innerHTML = (sp === "") ? "未设置" : sp;
     document.getElementById("flux").innerHTML = flux;
     // get lastest version
     $.ajax({

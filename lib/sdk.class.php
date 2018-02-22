@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * SDK管理模块
- * @version 1.1.0
+ * @version 1.1.1
  * @author Jokin
 **/
 class sdk {
@@ -195,9 +195,9 @@ class sdk {
    * @param  string bkt
    * @return mixed
   **/
-  public static function getDownloadUrl($url){
+  public static function getDownloadUrl($url, $expires=3600){
     $auth = new \Qiniu\Auth(C("AK"), C("SK"));
-    $signedUrl = $auth->privateDownloadUrl($url);
+    $signedUrl = $auth->privateDownloadUrl($url, $expires);
     return $signedUrl;
   }
 }

@@ -17,6 +17,10 @@ class initialize {
     }else{
       define("P", isset($_GET['page'])?$_GET['page']:"index");
     }
+    // 安全码设置
+    if( C("SAFE_ENCRYPTION") === false ){
+      C("SAFE_ENCRYPTION", "PrivacyCloud2018", true);
+    }
     // Cookie续期
     if( isset($_COOKIE['token']) ){
       setcookie("token", $_COOKIE['token'], time() + 3600);
@@ -45,7 +49,7 @@ class initialize {
       C("_DANGER_API_METHOD", "delBak");
     }
     // 升级包
-    if( is_file("./_update.zip") ){
+    if( is_file("./_update.zip") || is_file("./_update.php")){
       C("_DANGER", "R-3");
       C("_DANGER_MSG", "可能存在重要备份文件被下载的隐患");
       C("_DANGER_API_FILE", "safety");
