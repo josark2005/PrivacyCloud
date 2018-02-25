@@ -44,7 +44,7 @@ class main {
       // 生成备份
       $zip = new PrivacyCloud\ziper("./_pcbkup.zip", "c");
       if(!$zip){
-        $err['code'] = "JPCAE05";
+        $err['code'] = "JPCUD05";
         $err['msg'] = "failed to create backup";
         $err['msg_zh'] = "无法生成备份";
         echo json_encode($err);
@@ -54,7 +54,7 @@ class main {
         $zip->addFile("./index.php");
       }
       if($zip->errnum !== 0){
-        $err['code'] = "JPCAE05";
+        $err['code'] = "JPCUD05";
         $err['msg'] = "failed to create backup";
         $err['msg_zh'] = "无法生成备份";
         echo json_encode($err);
@@ -72,14 +72,14 @@ class main {
         $_md5 = json_decode($_md5, true); // 解析为数组
         $_md5 = $_md5[VERSION]['md5'];
         if( $file_md5 != $_md5 ){
-          $err['code'] = "JPCAE07";
+          $err['code'] = "JPCUD07";
           $err['msg'] = "bad file";
           $err['msg_zh'] = "升级文件校验失败";
           echo json_encode($err);
           exit();
         }
         if( !file_put_contents("./_update.zip", $file) ){
-          $err['code'] = "JPCAE08";
+          $err['code'] = "JPCUD08";
           $err['msg'] = "failed to put file";
           $err['msg_zh'] = "升级文件放置失败";
           echo json_encode($err);
@@ -95,21 +95,21 @@ class main {
             echo json_encode($err);
             exit();
           }else{
-            $err['code'] = "JPCAE10";
+            $err['code'] = "JPCUD10";
             $err['msg'] = "failed to extract update file";
             $err['msg_zh'] = "展开升级文件包失败";
             echo json_encode($err);
             exit();
           }
         }else{
-          $err['code'] = "JPCAE09";
+          $err['code'] = "JPCUD09";
           $err['msg'] = "failed to open update file";
           $err['msg_zh'] = "打开升级文件包失败";
           echo json_encode($err);
           exit();
         }
       }else{
-        $err['code'] = "JPCAE06";
+        $err['code'] = "JPCUD06";
         $err['msg'] = "failed to download update file";
         $err['msg_zh'] = "升级文件下载失败";
         echo json_encode($err);

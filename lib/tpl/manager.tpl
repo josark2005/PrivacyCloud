@@ -16,6 +16,7 @@
     <script type="text/javascript">
       var prefix = __BKTRS_PREFIX__;
       var prefix_len = __PREFIX_LEN__;
+      var dm = "__DM__";
       $(function(){
         // 解析面包导航
         $.each(prefix, function(key, value){
@@ -41,18 +42,18 @@
       var fdata;
       $(function(){
         uploader = Qiniu.uploader({
-          runtimes: 'html5,html4',      // 上传模式，依次退化
-          browse_button: 'pickfiles',         // 上传选择的点选按钮，必需
-          uptoken : '__UPTOKEN__', // uptoken是上传凭证，由其他程序生成
-          get_new_uptoken: false,             // 设置上传文件的时候是否每次都重新获取新的uptoken
-          domain: '__DM__',     // bucket域名，下载资源时用到，必需
-          container: 'upload',             // 上传区域DOM ID，默认是browser_button的父元素
-          max_file_size: '1024mb',             // 最大文件体积限制
-          max_retries: 3,                     // 上传失败最大重试次数
-          dragdrop: true,                     // 开启可拖曳上传
-          drop_element: 'upload',          // 拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
-          chunk_size: '4mb',                  // 分块上传时，每块的体积
-          auto_start: true,                   // 选择文件后自动上传，若关闭需要自己绑定事件触发上传
+          runtimes: 'html5,html4',
+          browse_button: 'pickfiles',
+          uptoken : '__UPTOKEN__',
+          get_new_uptoken: false,
+          domain: '__DM__',
+          container: 'upload',
+          max_file_size: '1024mb',
+          max_retries: 3,
+          dragdrop: true,
+          drop_element: 'upload',
+          chunk_size: '4mb',
+          auto_start: true,
           init: {
             'FilesAdded': function(up, files) {
                 plupload.each(files, function(file) {
@@ -247,9 +248,6 @@
                     <td><a class="btn btn-primary btn-sm" href="javascript:;" onclick="manager('~~#1!', '~~#4!','~~#5!', '~~#3!');"><i class="fa-fw far fa-caret-square-down"></i> 操作</a></td>
                   </tr>
                 </tbody>
-                <!-- <tbody id="file-list">
-                  ==list==
-                </tbody> -->
               </table>
               <div id="no-file" class="alert alert-info d-none">还没有文件哟~赶快上传吧！</div>
             </div>
@@ -299,7 +297,9 @@
           <div class="modal-body">
               <a id="download_href" href="javascript:;" target="_blank" class="btn btn-primary btn-block">下载</a>
               <hr />
-              <a id="del_href_enter" href="javascript:;" target="_blank" class="btn btn-danger btn-block">删除</a>
+              <a id="rename_href" href="javascript:;" onclick="$('#manager').modal('hide');$('#rename').modal('show');" class="btn btn-primary btn-block">重命名</a>
+              <hr />
+              <a id="del_href_enter" href="javascript:;" class="btn btn-danger btn-block">删除</a>
           </div>
           <div class="modal-footer" width='100%'>
               <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -321,6 +321,28 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
             <button type="button" class="btn btn-danger" id="del_href">删除</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="rename">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">重命名</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <input type="text" id="name" tabindex="0" class="form-control" autofocus="autofocus" placeholder="重命名" />
+              <div class="input-group-sappend">
+                <button class="btn btn-outline-danger" id="btn-rename" type="button">修改</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

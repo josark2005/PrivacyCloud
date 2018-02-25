@@ -16,6 +16,7 @@ class api {
 
 public static $public_api = array(
   "main"  => array("login"),
+  "zen"   => array("getZen"),
 );
 
 public static function run(){

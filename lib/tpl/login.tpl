@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./lib/tpl/css/fontawesome-all.min.css">
     <script src="./lib/tpl/js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="./lib/tpl/js/bootstrap.bundle.min.js" charset="utf-8"></script>
+    <script src="./lib/tpl/js/zen.js" charset="utf-8"></script>
     <script type="text/javascript">
       $(function(){
         // height fixer
@@ -28,7 +29,8 @@
       function login(){
         var pw = $("#pw").val();
         if(pw === ""){
-          alert("请输入授权密码");
+          $("#msg").text("请输入授权密码后再登录");
+          $("#msg").addClass("alert-warning");
           return ;
         }
         $.ajax({
@@ -39,7 +41,8 @@
           timeout: 10000,
           complete: function(XMLHttpRequest, status){
             if( status === "timeout" ){
-              alert("连接服务器超时，请稍候再试");
+              $("#msg").text("连接服务器超时，请稍候再试");
+              $("#msg").addClass("alert-warning");
             }
           },
           success: function(data){
@@ -47,7 +50,8 @@
             if( data.code === "0"){
               location.href = "?page=index";
             }else{
-              alert(data.msg_zh+" "+data.code);
+              $("#msg").text(data.msg_zh+" "+data.code);
+              $("#msg").addClass("alert-danger");
             }
           }
         });
@@ -62,9 +66,7 @@
           <img src="./lib/tpl/img/logo_pc.png" width="30" height="30" alt="logo">
           Privacy Cloud
         </a>
-        <span class="navbar-text">
-          NAS Online
-        </span>
+        <a class="navbar-text text-white" id="zen" href="javascript:;" target="_blank"></a>
       </div>
     </nav>
 
@@ -75,7 +77,7 @@
           <div class="card">
             <div class="card-header bg-dark text-white"><i class="fas fa-sign-in-alt"></i> 登录 / Login</div>
             <div class="card-body">
-              <div class="alert alert-primary">欢迎使用Privacy Cloud！</div>
+              <div class="alert alert-primary" id="msg">欢迎使用Privacy Cloud！</div>
               <div class="input-group mb-3">
                 <input type="password" id="pw" tabindex="0" class="form-control" autofocus="autofocus" placeholder="授权密码 Authorization Password" />
                 <div class="input-group-sappend">

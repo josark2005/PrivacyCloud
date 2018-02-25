@@ -200,5 +200,40 @@ class sdk {
     $signedUrl = $auth->privateDownloadUrl($url, $expires);
     return $signedUrl;
   }
+
+  /**
+   * simpleMove
+   * @param  string okey
+   * @param  string key
+   * @return boolean
+  **/
+  public static function simpleMove($okey, $key, $add_prefix=false){
+    if( $add_prefix === true ){
+      $prefix = explode("/", $okey);
+      if( count($prefix) === 1 ){
+        $prefix = "";
+      }else{
+        array_pop($prefix);
+        $prefix = join("/", $prefix)."/";
+      }
+    }
+    $key = $prefix.$key;
+    if( $okey === $key ){
+      return true;
+    }
+    $auth = new \Qiniu\Auth(C("AK"), C("SK"));
+    $config = new \Qiniu\Config();
+    $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
+    $srcBucket = C("BKT");
+    $destBucket = C("BKT");
+    $srcKey = $okey;
+    $destKey = $key;
+    $err = $bucketManager->move($srcBucket, $srcKey, $destBucket, $destKey, true);
+    if($err) {
+      return false;
+    }else{
+      return true;
+    }
+  }
 }
 ?>
