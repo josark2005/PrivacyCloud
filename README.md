@@ -29,7 +29,7 @@
 
 ## 相关信息 *Relevant Information*
 
-- 官网（手册） [Privacy Cloud](http://pc.twocola.com)
+- 官网（手册） [Privacy Cloud](http://jokin1999.github.io/PrivacyCloud)
 - GitHub [托管地址](http://github.com/jokin1999/PrivacyCloud)
 - Coding [托管地址](https://coding.net/u/Jokin/p/PrivacyCloud/git)
 
