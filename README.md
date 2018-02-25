@@ -29,11 +29,11 @@
 
 **登录授权页**
 
-![登录授权页](http://pc.twocola.com/resources/images/1.4.14_login.png)
+![登录授权页](http://pc.twocola.com/resources/images/1.5.0/v1.5.0-alpha.1_login.png)
 
 **UI界面**
 
-![UI界面](http://pc.twocola.com/resources/images/1.4.14_UI.jpg)
+![UI界面](http://pc.twocola.com/resources/images/1.5.0/v1.5.0-alpha.1_manager.png)
 
 ---
 
