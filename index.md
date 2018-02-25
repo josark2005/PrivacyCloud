@@ -2,7 +2,7 @@
 
 > 因结构设计问题，本项目将 **废弃** ，将以新项目 **[狐云](http://github.com/jokin1999/FoxPan/)** 回归。
 
-> `http://pc.twocola.com`地址可能不再为此项目提供服务支持，请及时将更新地址修改为`http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/`以确保成功获取后续的更新。
+> `http://pc.twocola.com/`地址可能不再为此项目提供服务支持，请及时将更新地址修改为`http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/`以确保成功获取后续的更新。
 
 > 项目归档后不再提供更新支持。
 
