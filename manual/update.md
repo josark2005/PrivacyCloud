@@ -4,7 +4,6 @@
 
 > 推荐使用短地址，更稳定、安全、长效。
 
-- `http://pc.twocola.com/`
 - `http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/`
 
 ## 第三方服务地址

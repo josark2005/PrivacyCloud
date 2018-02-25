@@ -49,7 +49,7 @@ $config=array (
   'AA' => false,
   'QD' => "osciu32fu.bkt.clouddn.com",
   'AUTH_PW' => '',
-  'UPDATE_BASIC_URL' => 'http://pc.twocola.com/',
+  'UPDATE_BASIC_URL' => 'http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/',
 );
 ```
 
