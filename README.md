@@ -8,6 +8,18 @@
 
 ---
 
+## `停止维护`公告
+
+因结构设计问题，本项目将 **废弃** ，将以新项目 **[狐云](http://github.com/jokin1999/FoxPan/)** 回归。
+
+> 请及时前往`其他`->`升级`页点击`修改为官方地址`进行新更新地址的切换！
+
+> 或手动设置为`http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/`以确保`平滑升级到狐云`。
+
+> 程序使用不受影响，更多信息请前往[官网](http://jokin1999.github.io/PrivacyCloud)查看。
+
+---
+
 ## 版本 *Version*
 
 
@@ -29,11 +41,11 @@
 
 **登录授权页**
 
-![登录授权页](http://pc.twocola.com/resources/images/1.5.0/v1.5.0-alpha.1_login.png)
+![登录授权页](http://jokin1999.github.io/PrivacyCloud/resources/images/1.5.0/v1.5.0-alpha.1_login.png)
 
 **UI界面**
 
-![UI界面](http://pc.twocola.com/resources/images/1.5.0/v1.5.0-alpha.1_manager.png)
+![UI界面](http://jokin1999.github.io/PrivacyCloud/resources/images/1.5.0/v1.5.0-alpha.1_manager.png)
 
 ---
 
