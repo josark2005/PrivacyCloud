@@ -21,7 +21,7 @@
 - GitHub [托管地址](http://github.com/jokin1999/PrivacyCloud)
 - Coding [托管地址](https://coding.net/u/Jokin/p/PrivacyCloud/git)
 
-*优先更新GitHub，Coding会及时进行同步，若时间差较大请见谅。*
+*GitHub，Coding会及时进行同步。*
 
 ---
 
