@@ -1,4 +1,4 @@
-# 首页
+ # 首页
 
 ## 版本 *Version*
 
@@ -7,11 +7,11 @@
 
 ---
 
-## 实例界面展示 *ver. 1.4.14*
+## 实例界面展示 *ver. 1.5.0-alpha.1*
 
-![登录授权页](./resources/images/1.4.14_login.png)
+![登录授权页](./resources/images/1.5.0/v1.5.0-alpha.1_login.png)
 
-![UI界面](./resources/images/1.4.14_UI.jpg)
+![UI界面](./resources/images/1.5.0/v1.5.0-alpha.1_manager.png)
 
 ---
 
@@ -34,6 +34,7 @@
 - **使用手册** [查看](./manual/start.md)
 - **版本发布** [查看](./release/index.md)
 - **官方公告** [查看](./notice/index.md)
+- **联系我们** [查看](./contact.md)
 
 ---
 
