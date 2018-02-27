@@ -1,5 +1,7 @@
 # Contact
 
+**1.5.1版本后不再更新官网，请移步[`狐云`](http://github.com/jokin1999/FoxPan/)**
+
 ## 意见、建议或投诉
 - 编辑标题为`[PC投诉]`，您的常用联系方式至`pc@twocola.com`或`jokin@twocola.com`。
 - 必有回复，请耐心等待！

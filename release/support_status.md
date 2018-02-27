@@ -1,5 +1,6 @@
 {
-  "1.5.0": {"version": "1.5.0", "md5": "4F19E7D78FE99208899DE09A563F4303"},
+  "1.5.1": {"version": "1.5.1", "md5": "B6B162629AF64A8EDEE7C2BED1A91C7A"},
+  "1.5.0": {"version": "1.5.1", "md5": "B6B162629AF64A8EDEE7C2BED1A91C7A"},
   "1.4.15": {"version": "1.5.0", "md5": "4F19E7D78FE99208899DE09A563F4303"},
   "1.4.14": {"version": "1.4.15", "md5": "C2FA9095A9A684035B9D918974CBAC01"},
   "1.4.13": {"version": "1.4.13", "md5": "6FF55F65AE47EB1C1BEDD4D04D5AC027"},
