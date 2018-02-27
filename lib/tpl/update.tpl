@@ -16,7 +16,7 @@
         // 认证地址检测
         var status = 0;
         var finish = 0;
-        $.getJSON("http://pc.twocola.com/release/update_verified.md", function(data){
+        $.getJSON("http://jokin1999.github.io/PrivacyCloud/release/update_verified.md", function(data){
           finish ++;
           $.each(data, function(key, value){
             if( value === $("#updUrl").text() ){
@@ -27,7 +27,7 @@
           });
         });
         // 调试地址检测
-        $.getJSON("http://pc.twocola.com/release/update_debug.md", function(data){
+        $.getJSON("http://jokin1999.github.io/PrivacyCloud/release/update_debug.md", function(data){
           finish ++
           $.each(data, function(key, value){
             if( value === $("#updUrl").text() ){

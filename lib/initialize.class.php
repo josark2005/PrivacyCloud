@@ -9,6 +9,8 @@
 namespace PrivacyCloud;
 class initialize {
   public static function atCore(){
+    // 安全头
+    header('X-Frame-Options: Deny');
     // 注册行为
     if( C("MODE") === router::MODE_API ){
       // api

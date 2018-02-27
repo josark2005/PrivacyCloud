@@ -219,7 +219,7 @@
               <hr />
               <h3># 首次安装程序</h3>
               <ol>
-                <li>请按<a href="http://pc.twocola.com/manual/start.html" target="_blank">教程（版本信息请参考下方）</a>仔细填写下方信息表。</li>
+                <li>请按<a href="http://jokin1999.github.io/PrivacyCloud/manual/start.html" target="_blank">教程（版本信息请参考下方）</a>仔细填写下方信息表。</li>
               </ol>
               <hr />
               <h3># 版本信息</h3>
@@ -231,7 +231,7 @@
               <h3># 许可与声明</h3>
               <ol>
                 <li>License：MIT</li>
-                <li>官网：<a href="http://pc.twocola.com/" target="_blank">pc.twocola.com</a></li>
+                <li>官网：<a href="http://jokin1999.github.io/PrivacyCloud/" target="_blank">pc.twocola.com</a></li>
                 <li><strong>一旦您完成设置并开始使用，即视为您已阅读并接受免责声明！</strong></li>
               </ol>
             </div>
@@ -365,7 +365,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="_upd">更新地址 UPD</span>
                   </div>
-                  <input type="text" class="form-control" id="upd" aria-describedby="_upd" placeholder="http://pc.twocola.com/" value="__UPDATE_BASIC_URL__">
+                  <input type="text" class="form-control" id="upd" aria-describedby="_upd" placeholder="http://jokin1999.github.io/PrivacyCloud/" value="__UPDATE_BASIC_URL__">
                 </div>
 
                 <div class="alert alert-danger" role="alert">

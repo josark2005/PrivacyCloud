@@ -23,7 +23,7 @@ class Core {
       die("您的环境不支持运行Privacy Cloud，要求PHP版本大于等于5.6.0");
     }
     // 版本信息
-    define("VERSION", "1.5.0");
+    define("VERSION", "1.5.1");
     define("CORE_VERSION", "2.0.0");
     // 注册autoload方法
     spl_autoload_register("PrivacyCloud\Core::autoload");
@@ -97,7 +97,7 @@ class Core {
   public static function exec_update(){
     if( is_file("./_update.php") ){
       include("./_update.php");
-      unlink("./_update.php");
+      @unlink("./_update.php");
     }
   }
 }

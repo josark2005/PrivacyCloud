@@ -84,14 +84,14 @@
                   <button class="btn btn-outline-secondary" id="btn" type="button" onclick="javascript:login();">登录</button>
                 </div>
               </div>
-              <a class="text-muted small float-right" href="http://pc.twocola.com/manual/forgetAuthPW.html" target="_blank">忘记密码？</a>
+              <a class="text-muted small float-right" href="http://jokin1999.github.io/PrivacyCloud/manual/forgetAuthPW.html" target="_blank">忘记密码？</a>
             </div>
             <div class="card-footer text-muted">
               <small>当前版本：__VERSION__</small><br />
               <small>Powered by Jokin.</small><br />
               <hr />
               <small>
-                <a class="text-muted" href="http://pc.twocola.com/" target="_blank">官方网站</a>
+                <a class="text-muted" href="http://jokin1999.github.io/PrivacyCloud/" target="_blank">官方网站</a>
                 |
                 <a class="text-muted fab fa-github" href="http://github.com/Jokin1999/PrivacyCloud" target="_blank"> GitHub</a>
                 |

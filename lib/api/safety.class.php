@@ -88,7 +88,7 @@ class safety {
   }
 
   public function chgUpd(){
-    $domains = @file_get_contents("http://pc.twocola.com/release/update_verified.md");
+    $domains = @file_get_contents("http://jokin1999.github.io/PrivacyCloud/release/update_verified.md");
     $domains = htmlspecialchars_decode($domains);
     $domains = json_decode($domains, true); // 解析为数组
     $domain = $domains[0];
