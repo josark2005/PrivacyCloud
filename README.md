@@ -14,7 +14,7 @@
 
 请及时前往`其他`->`升级`页点击`修改为官方地址`进行新更新地址的切换！
 
-或手动设置为`http://raw.githubusercontent.com/jokin1999/PrivacyCloud/gh-pages/`以确保`平滑升级到狐云`。
+或手动设置为`http://jokin1999.github.io/PrivacyCloud/`以确保`平滑升级到狐云`。
 
 程序使用不受影响，更多信息请前往[官网](http://jokin1999.github.io/PrivacyCloud)查看。
 
