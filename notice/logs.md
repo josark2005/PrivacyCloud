@@ -4,6 +4,7 @@
 
 - 为`PrivacyCloud`提供一版额外升级，修复部分已知Bug，同时提供对升级`狐云 FoxPan`的支持。
 - 正式关闭`ZEN`服务，保留`ZEN`数据。
+- 因服务提供商调整，需要修改`更新地址`为`https://jokin1999.github.io/PrivacyCloud/`，即使用安全链接。
 
 ## 2018.2.27
 
