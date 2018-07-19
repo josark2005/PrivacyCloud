@@ -1,5 +1,7 @@
 # 首页
 
+**升级地址：`https://jokin1999.github.io/PrivacyCloud/`**
+
 因结构设计问题，本项目将 **废弃** ，将以新项目 **[狐云](https://github.com/jokin1999/FoxPan/)** 回归。
 
 `http://pc.twocola.com/`地址可能不再为此项目提供服务支持，请及时将更新地址修改为`https://jokin1999.github.io/PrivacyCloud/`以确保成功 **获取后续的更新**。
