@@ -9,7 +9,7 @@
 namespace PrivacyCloud;
 /**
  * Template Processor
- * @version 1.2.2
+ * @version 1.2.3
  * @author Jokin
 **/
 class template {
@@ -74,7 +74,7 @@ class template {
       $matches[0] = array_unique($matches[0]);
       $matches[1] = array_unique($matches[1]);
       $i = 0;
-      $res = "";
+      $res = array();
       foreach($matches[0] as $match){
         $res[0][$i] = $match;
         $i++;

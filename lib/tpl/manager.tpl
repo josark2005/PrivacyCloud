@@ -12,7 +12,7 @@
     <script src="./lib/tpl/js/qiniu.min.js" charset="utf-8"></script>
     {_common_var_}
     <script src="./lib/tpl/js/main.js?ver=__VERSION__" charset="utf-8"></script>
-    <script src="./lib/tpl/js/manager.js" charset="utf-8"></script>
+    <script src="./lib/tpl/js/manager.js?ver=__VERSION" charset="utf-8"></script>
     <script type="text/javascript">
       var prefix = __BKTRS_PREFIX__;
       var prefix_len = __PREFIX_LEN__;
@@ -260,8 +260,6 @@
       </div>
 
     </div>
-
-    {_footer_}
 
     <div class="modal fade" tabindex="-1" role="dialog" id="newFloder">
       <div class="modal-dialog" role="document">

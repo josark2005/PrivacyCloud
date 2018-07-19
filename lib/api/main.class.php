@@ -129,6 +129,12 @@ class main {
     $ver = htmlspecialchars_decode($ver);
     $ver = json_decode($ver, true); // 解析为数组
     $ver = isset($ver[VERSION]['version']) ? $ver[VERSION]['version'] : C("VERSION");
+    // FoxPan升级支持
+    if ($ver === '1.6.0'){
+      if (version_compare(PHP_VERSION, '7.0.0', '<')) {
+        $ver = C("VERSION");
+      }
+    }
     echo json_encode($ver);
   }
 }

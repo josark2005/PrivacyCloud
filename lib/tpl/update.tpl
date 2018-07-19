@@ -125,6 +125,8 @@
 
     <div class="container mt-4" id="container">
 
+      <div class="alert alert-success">通知：1.6.0版本将以新项目狐云(FoxPan)形式展现，功能、UI、性能都有一定程度的升级，但只支持PHP7以上版本。</div>
+
       <div class="row">
 
         <div class="col-md-12 col-sm-12">
@@ -137,7 +139,9 @@
               <p>
                 升级服务提供：<span id="update_verified" class="d-none badge badge-success">认证地址</span><span id="update_debug" class="d-none badge badge-warning">调试地址</span><span id="update_unknown" class="d-none badge badge-danger">[R-4]未知地址</span><span id="updUrl">__UPDATE_BASIC_URL__</span> <a id="urlSafer" class="d-none text-sm text-danger" href="javascript:;" onclick="javascript:urlSafer();">修改为官方地址</a><br />
                 当前版本：__VERSION__<br />
-                可更新版本：<span id="lastest_version">等待检查</span>
+                可更新版本：<span id="lastest_version">等待检查</span><br />
+                当前PHP版本：<span>__PHP_VERSION__</span><br />
+                FoxPan需要PHP7支持，若您的PHP版本低于7.0.0将无法收到1.6.0(FoxPan)的更新
               </p>
               <button type="button" class="btn btn-outline-danger" id="glv" onclick="getLastestVer();">检查新版本</button>
               <button type="button" class="btn btn-outline-success d-none" id="update" onclick="update();">立即更新</button>
@@ -146,6 +150,10 @@
                 <hr />
                 <strong>更新进度：</strong><span id="prog"></span>
               </div>
+              <hr />
+              <h3>狐云 FoxPan 介绍</h3>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;狐云，英文名称FoxPan，是PrivacyCloud的后续项目，提供对PrivacyCloud的升级支持，只需要PrivacyCloud版本1.5.2并且使用PHP7或更新版本即可一键升级。</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;狐云提供更加简洁的操作界面，更快更稳定的运行与响应速度，狐云拥有更好的UI风格也延续了PrivacyCloud本来的面貌，使得PrivacyCloud老用户可以快速上手无需学习。</p>
             </div>
           </div>
         </div>

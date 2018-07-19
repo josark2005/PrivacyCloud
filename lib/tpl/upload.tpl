@@ -129,7 +129,5 @@
 
     </div>
 
-    {_footer_}
-
   </body>
 </html>
